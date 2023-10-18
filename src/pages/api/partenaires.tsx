@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 const prisma = new PrismaClient();
-const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+const partenaireHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === "GET") {
     try {
       const partenaires = await prisma.partenaire.findMany();
@@ -18,4 +18,4 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 };
 
-export default handler;
+export default partenaireHandler;

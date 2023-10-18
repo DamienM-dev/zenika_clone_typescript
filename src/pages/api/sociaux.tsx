@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 
 const prisma = new PrismaClient();
 
-const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+const sociauxHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === "GET") {
     try {
       const sociaux = await prisma.social.findMany();
@@ -21,4 +21,4 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(405).end();
   }
 };
-export default handler;
+export default sociauxHandler;
