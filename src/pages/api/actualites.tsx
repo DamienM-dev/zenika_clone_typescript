@@ -1,9 +1,9 @@
 import { PrismaClient } from "@prisma/client";
-import { NextApiRequest, NextApiResponse } from "next";
+import type { NextApiRequest, NextApiResponse } from "next";
 
 const prisma = new PrismaClient();
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === "GET") {
     try {
       const actualites = await prisma.evenement.findMany();
@@ -18,3 +18,4 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(405).end();
   }
 };
+export default handler;
