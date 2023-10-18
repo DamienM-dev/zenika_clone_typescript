@@ -27,13 +27,16 @@ function Social() {
         return response.json();
       })
       .then((data) => {
-        setSociaux(data);
+        setSociaux(data as Social[]);
       })
       .catch((err) => {
-        console.error(err);
-        setError(err.message);
+        console.error((err as Error).message);
+        setError(err as null);
       });
   }, []);
+  if (error) {
+    return <div>Erreur : {error}</div>;
+  }
 
   return (
     <div>
