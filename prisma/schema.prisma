@@ -1,0 +1,78 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgres"
+    // NOTE: When using mysql or sqlserver, uncomment the @db.Text annotations in model Account below
+    // Further reading:
+    // https://next-auth.js.org/adapters/prisma#create-the-prisma-schema
+    // https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#string
+    url      = env("DATABASE_URL")
+}
+
+model Carrousel {
+    id Int    @id @default(autoincrement())
+    img String
+    alt String
+}
+
+model Expertise {
+    id Int    @id @default(autoincrement())
+    logo String 
+    nom String
+    alt String
+}
+
+model Reference {
+    id Int    @id @default(autoincrement())
+    img String 
+    alt String
+    paragraphe String
+    sous_titre String
+    langage String
+    lien_decouvrir String
+    projet String
+}
+
+model Partenaire {
+    id Int    @id @default(autoincrement())
+    logo String 
+    alt String
+    nom String
+}
+
+model Evenement {
+    id Int    @id @default(autoincrement())
+    img String 
+    alt String
+    titre String
+    paragraphe String
+    lien_decouvrir String
+}
+
+model Agence {
+    id Int    @id @default(autoincrement())
+    img String 
+    alt String
+    titre String
+    lien String
+}
+
+model Social {
+    id Int    @id @default(autoincrement())
+    logo String 
+    alt String
+    titre String
+    lien String
+}
+
+model Mention {
+    id Int    @id @default(autoincrement())
+    titre String 
+    lien String
+}
+

@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Nunito";
+  src: url("/fonts/Nunito.woff2") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "NunitoLight";
+  src: url("/fonts/Nunito_light.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: #df2147 !important;
+}
+.swiper-pagination-bullet {
+  width: 12px !important;
+  height: 12px !important;
+  border: 1px solid #df2147 !important;
+  background-color: transparent !important;
+}
+
+.backgourndGradient {
+  background: linear-gradient(51.05deg, #ee2238 -57.1%, #bf1d67 156.72%);
+}
+
+@media screen and (min-width: 1581px) {
+  .partenaire .swiper-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+}
