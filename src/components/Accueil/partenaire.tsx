@@ -36,11 +36,11 @@ function Partenaire() {
         return response.json();
       })
       .then((data) => {
-        setPartenaires(data);
+        setPartenaires(data as Partenaire[]);
       })
       .catch((err) => {
-        console.error(err);
-        setError(err.message);
+        console.error((err as Error).message);
+        setError(err as null);
       });
   }, []);
   return (

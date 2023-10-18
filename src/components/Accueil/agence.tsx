@@ -25,17 +25,17 @@ function Agence() {
         return response.json();
       })
       .then((data) => {
-        setAgences(data);
+        setAgences(data as Agence[]);
       })
       .catch((err) => {
-        console.error(err);
-        setError(err.message);
+        console.error((err as Error).message);
+        setError(err as null);
       });
   }, []);
 
   return (
     <div className="backgourndGradient px-2 py-10">
-      <h2 className="text-pinkTitre my-9 text-center text-2xl font-bold leading-10">
+      <h2 className="my-9 text-center text-2xl font-bold leading-10 text-pinkTitre">
         {TITRE}
       </h2>
       <div className="sm:grid sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6">
@@ -51,8 +51,8 @@ function Agence() {
                 objectFit="cover"
                 className=""
               />
-              <div className="bg-backCardAgence rounded-b-xl p-4 text-center">
-                <h3 className="text-pinkZenika capitalize">{agence.titre}</h3>
+              <div className="rounded-b-xl bg-backCardAgence p-4 text-center">
+                <h3 className="capitalize text-pinkZenika">{agence.titre}</h3>
               </div>
             </div>
           </div>

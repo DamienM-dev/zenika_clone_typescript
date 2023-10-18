@@ -38,11 +38,11 @@ function Actualite() {
         return response.json();
       })
       .then((data) => {
-        setActualite(data);
+        setActualite(data as Actualite[]);
       })
       .catch((err) => {
-        console.log(err.message);
-        setError(err);
+        console.log((err as Error).message);
+        setError(err as null);
       });
   }, []);
 
@@ -61,7 +61,7 @@ function Actualite() {
         className="mySwiper"
       >
         {actualites.map((actualite) => (
-          <SwiperSlide key={actualite.id} className="h-card shadow-custom p-2">
+          <SwiperSlide key={actualite.id} className="h-card p-2 shadow-custom">
             {actualite.id && (
               <div className="mx-8">
                 <Image

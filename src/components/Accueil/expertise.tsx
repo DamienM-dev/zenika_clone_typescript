@@ -32,11 +32,11 @@ function Expertise() {
         return response.json();
       })
       .then((data) => {
-        setExpertises(data);
+        setExpertises(data as Expertise[]);
       })
       .catch((err) => {
-        console.error(err);
-        setError(err.message);
+        console.error((err as Error).message);
+        setError(err as null);
       });
   }, []);
 
