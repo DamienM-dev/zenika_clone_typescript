@@ -33,6 +33,10 @@ function Agence() {
       });
   }, []);
 
+  if (error) {
+    return <div>Erreur : {error}</div>;
+  }
+
   return (
     <div className="backgourndGradient px-2 py-10">
       <h2 className="my-9 text-center text-2xl font-bold leading-10 text-pinkTitre">

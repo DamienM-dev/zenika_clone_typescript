@@ -52,6 +52,9 @@ function Reference() {
         setError(err as null);
       });
   }, []);
+  if (error) {
+    return <div>Erreur : {error}</div>;
+  }
   return (
     <div className="px-10">
       <h2 className="leading-10b p-10 text-center text-2xl font-bold">

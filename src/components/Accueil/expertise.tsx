@@ -39,6 +39,9 @@ function Expertise() {
         setError(err as null);
       });
   }, []);
+  if (error) {
+    return <div>Erreur : {error}</div>;
+  }
 
   return (
     <div className="bg-greyColor py-2 pb-4 pt-10">

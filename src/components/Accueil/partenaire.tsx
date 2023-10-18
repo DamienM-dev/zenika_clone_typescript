@@ -43,6 +43,9 @@ function Partenaire() {
         setError(err as null);
       });
   }, []);
+  if (error) {
+    return <div>Erreur : {error}</div>;
+  }
   return (
     <div className="partenaire bg-greyColor py-2 pb-4 pt-10">
       <h2 className="mb-9 text-center text-2xl font-bold leading-10">
