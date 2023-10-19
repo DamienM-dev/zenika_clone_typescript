@@ -45,7 +45,7 @@ function Agence() {
       <div className="sm:grid sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6">
         {agences.map((agence) => (
           <div key={agence.id} className="p-5">
-            <div className=" mx-auto w-full max-w-md rounded-xl">
+            <div className=" mx-auto w-full max-w-sm rounded-xl">
               <Image
                 src={agence.img}
                 alt={agence.alt}

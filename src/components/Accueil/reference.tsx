@@ -70,33 +70,40 @@ function Reference() {
         className="mySwiper"
       >
         {references.map((reference) => (
-          <SwiperSlide key={reference.id}>
-            <div className="relative rounded-t-lg">
-              <Image
-                src={reference.img}
-                alt={reference.alt}
-                height={454}
-                width={338}
-                objectFit="cover"
-                className="w-full rounded-t-lg"
-              />
-              <h3 className="absolute top-7 px-7 text-white">
-                {reference.sous_titre}
-              </h3>
-            </div>
-            <div className=" ">
-              <div className="h-96 rounded-b-lg p-4 shadow-custom">
-                <h3>{reference.projet}</h3>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: DOMPurify.sanitize(reference.paragraphe),
-                  }}
-                  className="font-nunito-light"
-                ></p>
-                <h3>Expertises</h3>
-                <p className="font-nunito-light">{reference.langage}</p>
-              </div>
-            </div>
+          <SwiperSlide key={reference.id} className=" p-2">
+            <ul className="mx-8  rounded-xl shadow-custom">
+              {reference.id && (
+                <li className="mb-10">
+                  <div className="relative">
+                    <Image
+                      src={reference.img}
+                      alt={reference.alt}
+                      height={246}
+                      width={380}
+                      layout="responsive"
+                      objectFit="cover"
+                      className="max-h-60 w-full rounded-t-xl"
+                    />
+                    <h3 className="absolute top-0 p-4 text-white">
+                      {reference.sous_titre}
+                    </h3>
+                  </div>
+                  <div className="m-4">
+                    <div className="mb-4 text-base leading-5">
+                      <h3 className="strong ">{reference.projet}</h3>
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: DOMPurify.sanitize(reference.paragraphe),
+                        }}
+                        className="font-nunito-light"
+                      ></p>
+                      <h3>Expertises</h3>
+                      <p>{reference.langage}</p>
+                    </div>
+                  </div>
+                </li>
+              )}
+            </ul>
           </SwiperSlide>
         ))}
       </Swiper>

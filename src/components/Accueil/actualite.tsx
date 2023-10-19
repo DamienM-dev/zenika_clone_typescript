@@ -62,28 +62,43 @@ function Actualite() {
         mousewheel={true}
         keyboard={true}
         modules={[Navigation, Pagination, Mousewheel, Keyboard]}
-        className="mySwiper"
+        breakpoints={{
+          860: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          1265: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+        }}
+        className="mySwiper h-[500px]"
       >
         {actualites.map((actualite) => (
-          <SwiperSlide key={actualite.id} className="h-card p-2 shadow-custom">
-            {actualite.id && (
-              <div className="mx-8">
-                <Image
-                  src={actualite.img}
-                  alt={actualite.alt}
-                  height={246}
-                  width={380}
-                  layout="responsive"
-                  objectFit="cover"
-                />
-                <div className="m-4">
-                  <div className="mb-4 text-base leading-5">
-                    <h3 className="strong ">{actualite.titre}</h3>
-                    <p className="font-nunito-light">{actualite.paragraphe}</p>
+          <SwiperSlide key={actualite.id} className="h-card p-2">
+            <ul className="mx-8 h-[450px] rounded-xl shadow-custom">
+              {actualite.id && (
+                <li>
+                  <Image
+                    src={actualite.img}
+                    alt={actualite.alt}
+                    height={246}
+                    width={380}
+                    layout="responsive"
+                    objectFit="cover"
+                    className="max-h-60 w-full rounded-t-xl"
+                  />
+                  <div className="m-4">
+                    <div className="mb-4 text-base leading-5">
+                      <h3 className="strong ">{actualite.titre}</h3>
+                      <p className="font-nunito-light">
+                        {actualite.paragraphe}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </div>
-            )}
+                </li>
+              )}
+            </ul>
           </SwiperSlide>
         ))}
       </Swiper>
