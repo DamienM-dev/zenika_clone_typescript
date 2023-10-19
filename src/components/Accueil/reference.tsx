@@ -67,14 +67,24 @@ function Reference() {
         mousewheel={true}
         keyboard={true}
         modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+        breakpoints={{
+          1170: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          1800: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+        }}
         className="mySwiper"
       >
         {references.map((reference) => (
           <SwiperSlide key={reference.id} className=" p-2">
-            <ul className="mx-8  rounded-xl shadow-custom">
+            <ul className="mx-8 rounded-xl shadow-custom ">
               {reference.id && (
-                <li className="mb-10">
-                  <div className="relative">
+                <li className="mb-10 lg:flex lg:h-[500px]">
+                  <div className="relative lg:w-1/2">
                     <Image
                       src={reference.img}
                       alt={reference.alt}
@@ -82,23 +92,24 @@ function Reference() {
                       width={380}
                       layout="responsive"
                       objectFit="cover"
-                      className="max-h-60 w-full rounded-t-xl"
+                      className="max-h-60 w-full rounded-t-xl lg:!h-full lg:max-h-full lg:rounded-tr-none"
                     />
                     <h3 className="absolute top-0 p-4 text-white">
                       {reference.sous_titre}
                     </h3>
                   </div>
-                  <div className="m-4">
-                    <div className="mb-4 text-base leading-5">
+
+                  <div className="m-4 h-96 lg:w-1/2">
+                    <div className="mb-4 text-base leading-5 lg:p-4">
                       <h3 className="strong ">{reference.projet}</h3>
                       <p
                         dangerouslySetInnerHTML={{
                           __html: DOMPurify.sanitize(reference.paragraphe),
                         }}
-                        className="font-nunito-light"
+                        className="mb-4 font-nunito-light"
                       ></p>
                       <h3>Expertises</h3>
-                      <p>{reference.langage}</p>
+                      <p className="font-nunito-light">{reference.langage}</p>
                     </div>
                   </div>
                 </li>
