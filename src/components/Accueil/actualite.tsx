@@ -7,6 +7,7 @@ interface Actualite {
   alt: string;
   titre: string;
   paragraphe: string;
+  lien_decouvrir: string;
 }
 
 // IMPORT SWIPRE
@@ -23,6 +24,8 @@ import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
 
 function Actualite() {
   const TITRE = "Nos actualités et événements";
+  const ARROWRIGHT = "/icone/arrowRight.png";
+  const ALRARROWRIGHT = "Fléche de droite";
 
   const [actualites, setActualite] = useState<Actualite[]>([]);
   const [error, setError] = useState(null);
@@ -95,6 +98,27 @@ function Actualite() {
                         {actualite.paragraphe}
                       </p>
                     </div>
+                  </div>
+                  <div>
+                    <a
+                      className="flex justify-center"
+                      href={actualite.lien_decouvrir}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span>
+                        <Image
+                          src={ARROWRIGHT}
+                          alt={ALRARROWRIGHT}
+                          width={24}
+                          height={24}
+                          className="mr-2"
+                        />
+                      </span>
+                      <span className="uppercase text-pinkZenika">
+                        Découvrir
+                      </span>
+                    </a>
                   </div>
                 </li>
               )}

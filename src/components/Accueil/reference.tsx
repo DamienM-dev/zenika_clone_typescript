@@ -35,6 +35,8 @@ function Reference() {
   const [error, setError] = useState(null);
 
   const TITRE = "Nos références";
+  const ARROWRIGHT = "/icone/arrowRight.png";
+  const ALRARROWRIGHT = "Fléche de droite";
 
   useEffect(() => {
     fetch("/api/references")
@@ -108,9 +110,38 @@ function Reference() {
                         }}
                         className="mb-4 font-nunito-light"
                       ></p>
-                      <h3>Expertises</h3>
-                      <p className="font-nunito-light">{reference.langage}</p>
+                      {reference.langage ? (
+                        <>
+                          <h3>Expertises</h3>
+                          <p className="font-nunito-light">
+                            {reference.langage}
+                          </p>
+                        </>
+                      ) : null}
                     </div>
+                    {reference.lien_decouvrir ? (
+                      <div className="p-2">
+                        <a
+                          className="flex justify-end"
+                          href={reference.lien_decouvrir}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <span>
+                            <Image
+                              src={ARROWRIGHT}
+                              alt={ALRARROWRIGHT}
+                              width={24}
+                              height={24}
+                              className="mr-2"
+                            />
+                          </span>
+                          <span className="uppercase text-pinkZenika">
+                            Découvrir
+                          </span>
+                        </a>
+                      </div>
+                    ) : null}
                   </div>
                 </li>
               )}
