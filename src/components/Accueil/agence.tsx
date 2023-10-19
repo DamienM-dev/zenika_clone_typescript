@@ -45,7 +45,7 @@ function Agence() {
       <div className="sm:grid sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6">
         {agences.map((agence) => (
           <div key={agence.id} className="p-5">
-            <div className=" mx-auto w-full max-w-sm rounded-xl">
+            <div className=" mx-auto w-full max-w-sm rounded-t-xl">
               <Image
                 src={agence.img}
                 alt={agence.alt}
@@ -53,7 +53,7 @@ function Agence() {
                 height={160}
                 layout="responsive"
                 objectFit="cover"
-                className=""
+                className="rounded-t-xl"
               />
               <div className="rounded-b-xl bg-backCardAgence p-4 text-center">
                 <h3 className="capitalize text-pinkZenika">{agence.titre}</h3>
