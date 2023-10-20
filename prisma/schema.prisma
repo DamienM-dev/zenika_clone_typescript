@@ -32,10 +32,10 @@ model Reference {
     img String 
     alt String
     paragraphe String
-    sous_titre String
-    langage String
-    lien_decouvrir String
-    projet String
+    sous_titre String?
+    langage String?
+    lien_decouvrir String?
+    projet String?
 }
 
 model Partenaire {
@@ -59,7 +59,7 @@ model Agence {
     img String 
     alt String
     titre String
-    lien String
+    lien String?
 }
 
 model Social {
@@ -67,12 +67,21 @@ model Social {
     logo String 
     alt String
     titre String
-    lien String
+    lien String?
 }
 
 model Mention {
     id Int    @id @default(autoincrement())
     titre String 
-    lien String
+    lien String?
 }
+
+model forGood {
+    id Int    @id @default(autoincrement())
+    image String
+    alt String
+    titre String 
+    paragraphe String
+}
+
 

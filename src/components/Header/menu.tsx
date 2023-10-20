@@ -47,7 +47,7 @@ function Menu() {
                 {LINKS.map((link) => (
                   <li
                     key={link.name}
-                    className="mr-8 mt-6 font-nunito-light text-xl"
+                    className="mr-8 mt-6 font-nunito-light text-xl hover:text-pinkZenika"
                   >
                     <Link className="uppercase" href={link.link}>
                       {link.name}
@@ -60,7 +60,7 @@ function Menu() {
                 {LINKSSECONDARY.map((linkSecondary) => (
                   <li
                     key={linkSecondary.name}
-                    className="mr-8 mt-6 font-nunito-light text-xl"
+                    className="mr-8 mt-6 font-nunito-light text-xl hover:text-pinkZenika"
                   >
                     <Link className="uppercase" href={linkSecondary.link}>
                       {linkSecondary.name}
@@ -72,7 +72,11 @@ function Menu() {
             <div className="mb-6 block h-72"></div>
             <div>
               {CONTACT.map((contact) => (
-                <a key={contact.name} href={contact.link}>
+                <a
+                  key={contact.name}
+                  href={contact.link}
+                  className="mb-6 mt-4 rounded-full border border-0 border-black bg-backCardAgence p-4 text-xl uppercase"
+                >
                   {contact.name}
                 </a>
               ))}

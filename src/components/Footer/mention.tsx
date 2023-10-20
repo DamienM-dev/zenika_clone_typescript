@@ -35,7 +35,7 @@ function Mention() {
     <div className="pt-4 text-center">
       {mentions.map((mention) => (
         <ul key={mention.id}>
-          <li className="mb-4 font-nunito-light">
+          <li className="mb-4 font-nunito-light hover:text-pinkZenika">
             <a href={mention.lien}>
               <h3>{mention.titre}</h3>
             </a>

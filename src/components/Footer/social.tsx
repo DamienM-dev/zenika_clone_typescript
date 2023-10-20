@@ -39,7 +39,7 @@ function Social() {
       <div className="">
         {sociaux.slice(0, 3).map((social) => (
           <ul key={social.id} className="pt-2">
-            <li className="flex justify-center p-2">
+            <li className="flex justify-center p-2 hover:text-pinkZenika">
               <a href={social.lien} className="flex">
                 <Image
                   src={social.logo}
@@ -57,7 +57,7 @@ function Social() {
       <div className="">
         {sociaux.slice(3, 7).map((social) => (
           <ul key={social.id} className="pt-2">
-            <li className="flex justify-center p-2">
+            <li className="flex justify-center p-2 hover:text-pinkZenika">
               <a href={social.lien} className="flex">
                 <Image
                   src={social.logo}
