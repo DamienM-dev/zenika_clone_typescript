@@ -75,7 +75,7 @@ function Menu() {
                 <a
                   key={contact.name}
                   href={contact.link}
-                  className="mb-6 mt-4 rounded-full border border-0 border-black bg-backCardAgence p-4 text-xl uppercase"
+                  className="mb-6 mt-4 rounded-full border border-black bg-backCardAgence p-4 text-xl uppercase"
                 >
                   {contact.name}
                 </a>

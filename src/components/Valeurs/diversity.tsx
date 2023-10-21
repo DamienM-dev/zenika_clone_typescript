@@ -1,22 +1,4 @@
-// IMPORT REACT/NEXT
-
-import Image from "next/image";
-import { useState, useEffect } from "react";
-
-interface Reference {
-  id: number;
-  img: string;
-  alt: string;
-  paragraphe: string;
-  sous_titre: string;
-  langage: string;
-  lien_decouvrir: string;
-  projet: string;
-}
-
-// IMPORT LIB
-
-import DOMPurify from "dompurify";
+import { useEffect, useState } from "react";
 
 // IMPORT SWIPRE
 
@@ -29,37 +11,49 @@ import "swiper/css/pagination";
 
 // import required modules
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
+import Image from "next/image";
 
-function Reference() {
-  const [references, setReferences] = useState<Reference[]>([]);
-  const [error, setError] = useState(null);
+type Diversity = {
+  id: number;
+  image: string;
+  alt: string;
+  titre: string;
+  paragraphe: string;
+  lien: string;
+};
 
-  const TITRE = "Nos références";
+function Diversity() {
+  const TITRE = "Z Diversity";
   const ARROWRIGHT = "/icone/arrowRight.png";
   const ALRARROWRIGHT = "Fléche de droite";
 
+  const [diversities, setDiversities] = useState<Diversity[]>([]);
+  const [error, setError] = useState(null);
+
   useEffect(() => {
-    fetch("/api/references")
+    fetch("/api/diversity")
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Un problème est intervenu pendant le chargement");
+          throw new Error("Une erreur est survenue pendant le chargement");
         }
         return response.json();
       })
       .then((data) => {
-        setReferences(data as Reference[]);
+        setDiversities(data as Diversity[]);
       })
       .catch((err) => {
         console.log((err as Error).message);
         setError(err as null);
       });
   }, []);
+
   if (error) {
     return <div>Erreur : {error}</div>;
   }
+
   return (
-    <div className="px-10">
-      <h2 className="leading-10b p-10 text-center text-2xl font-bold">
+    <article className="bg-greyColor px-2 pb-12 pt-10">
+      <h2 className="my-9 text-center text-2xl font-bold leading-10">
         {TITRE}
       </h2>
       <Swiper
@@ -70,60 +64,48 @@ function Reference() {
         keyboard={true}
         modules={[Navigation, Pagination, Mousewheel, Keyboard]}
         breakpoints={{
-          1170: {
+          860: {
             slidesPerView: 2,
             spaceBetween: 20,
           },
-          1800: {
+          1265: {
             slidesPerView: 3,
             spaceBetween: 20,
           },
         }}
-        className="mySwiper"
+        className="mySwiper "
       >
-        {references.map((reference) => (
-          <SwiperSlide key={reference.id} className=" p-2">
-            <ul className="mx-8 rounded-xl shadow-custom ">
-              {reference.id && (
-                <li className="mb-10 lg:flex lg:h-[500px]">
-                  <div className="relative lg:w-1/2">
+        {diversities.map((diversity) => (
+          <SwiperSlide key={diversity.id} className="h-card p-2">
+            <ul className="relative mx-8 mb-10 h-[500px] rounded-xl shadow-custom">
+              {diversity.id && (
+                <li className="lg:flex lg:h-full">
+                  <div className="lg:w-1/2">
                     <Image
-                      src={reference.img}
-                      alt={reference.alt}
+                      src={diversity.image}
+                      alt={diversity.alt}
                       height={246}
                       width={380}
                       layout="responsive"
                       objectFit="cover"
                       className="max-h-60 w-full rounded-t-xl lg:!h-full lg:max-h-full lg:rounded-tr-none"
                     />
-                    <h3 className="absolute top-0 p-4 text-white">
-                      {reference.sous_titre}
-                    </h3>
                   </div>
 
-                  <div className="m-4 h-96 lg:w-1/2">
-                    <div className="mb-4 text-base leading-5 lg:p-4">
-                      <h3 className="strong ">{reference.projet}</h3>
-                      <p
-                        dangerouslySetInnerHTML={{
-                          __html: DOMPurify.sanitize(reference.paragraphe),
-                        }}
-                        className="mb-4 font-nunito-light"
-                      ></p>
-                      {reference.langage ? (
-                        <>
-                          <h3>Expertises</h3>
-                          <p className="font-nunito-light">
-                            {reference.langage}
-                          </p>
-                        </>
-                      ) : null}
+                  <div className="lg:w-1/2">
+                    <div className="m-4">
+                      <div className="mb-4 text-base leading-5">
+                        <h3 className="strong ">{diversity.titre}</h3>
+                        <p className="pt-2 font-nunito-light">
+                          {diversity.paragraphe}
+                        </p>
+                      </div>
                     </div>
-                    {reference.lien_decouvrir ? (
-                      <div className="p-2 ">
+                    {diversity.lien ? (
+                      <div className="absolute bottom-0 end-0 p-2">
                         <a
                           className="flex justify-end"
-                          href={reference.lien_decouvrir}
+                          href={diversity.lien}
                           target="_blank"
                           rel="noopener noreferrer"
                         >
@@ -136,6 +118,7 @@ function Reference() {
                               className="mr-2"
                             />
                           </span>
+
                           <span className="uppercase text-pinkZenika">
                             Découvrir
                           </span>
@@ -149,8 +132,8 @@ function Reference() {
           </SwiperSlide>
         ))}
       </Swiper>
-    </div>
+    </article>
   );
 }
 
-export default Reference;
+export default Diversity;

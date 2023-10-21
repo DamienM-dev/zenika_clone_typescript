@@ -22,6 +22,7 @@ export default {
         pinkZenika: "#DF2147",
         pinkTitre: "rgba(255, 255, 255, 0.87)",
         backCardAgence: "#F3F3F3",
+        greyText: "rgba(0, 0, 0, 0.54)",
       },
       boxShadow: {
         custom:

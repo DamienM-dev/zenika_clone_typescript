@@ -1,6 +1,8 @@
-import { forGood } from "@prisma/client";
+import DOMPurify from "dompurify";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+
+const TITRE = "Tech for good";
 
 function ForGood() {
   type ForGood = {
@@ -36,22 +38,35 @@ function ForGood() {
   }
 
   return (
-    <div>
-      {forGoods.map((forGood) => (
-        <ul key={forGood.id}>
-          <li>
-            <Image
-              src={forGood.image}
-              alt={forGood.alt}
-              height={150}
-              width={150}
-            />
-            <h2>{forGood.titre}</h2>
-            <p>{forGood.paragraphe}</p>
-          </li>
-        </ul>
-      ))}
-      <p>dskddddd</p>
+    <div className="px-2 py-10">
+      <div className="text-center">
+        <h2 className="pb-10 text-2xl">{TITRE}</h2>
+      </div>
+      <ul className="m-auto max-w-[1750px] text-center lg:grid lg:grid-cols-2 xl:grid-cols-3">
+        {forGoods.map((forGood) => (
+          <div key={forGood.id} className="p-4">
+            <li className="rounded-lg px-2 pb-2 pt-6 shadow-custom lg:h-[454px] lg:w-[500px]">
+              <div className="flex justify-center">
+                <Image
+                  src={forGood.image}
+                  alt={forGood.alt}
+                  height={150}
+                  width={150}
+                />
+              </div>
+              <div className="p-4">
+                <h3>{forGood.titre}</h3>
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: DOMPurify.sanitize(forGood.paragraphe),
+                  }}
+                  className="text-greyText m-4 font-nunito-light"
+                ></p>
+              </div>
+            </li>
+          </div>
+        ))}
+      </ul>
     </div>
   );
 }

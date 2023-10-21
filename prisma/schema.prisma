@@ -84,4 +84,13 @@ model forGood {
     paragraphe String
 }
 
+model Equality {
+    id Int    @id @default(autoincrement())
+    image String
+    alt String
+    titre String 
+    paragraphe String
+    lien String?
+}
+
 
