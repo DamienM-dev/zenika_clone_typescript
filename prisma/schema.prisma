@@ -93,4 +93,21 @@ model Equality {
     lien String?
 }
 
+model Connaissance {
+    id Int    @id @default(autoincrement())
+    image String
+    alt String
+    titre String 
+    paragraphe String
+}
+
+model Communautes {
+    id Int    @id @default(autoincrement())
+    image String
+    alt String
+    titre String 
+    paragraphe String
+
+}
+
 
