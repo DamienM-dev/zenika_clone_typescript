@@ -69,7 +69,7 @@ function Connaissance() {
           {connaissances.map((connaissance) => (
             <SwiperSlide key={connaissance.id}>
               <ul className="">
-                <li className="mx-8">
+                <li className="mx-8 rounded-b-xl shadow-custom">
                   <div className="flex h-60">
                     <Image
                       src={connaissance.image}
