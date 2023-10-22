@@ -110,4 +110,71 @@ model Communautes {
 
 }
 
+model Responsable {
+    id Int    @id @default(autoincrement())
+    image String
+    alt String
+    titre String 
+    paragraphe String
+    lien String?
+}
 
+model Initiative {
+    id Int    @id @default(autoincrement())
+    image String
+    alt String
+    titre String 
+    paragraphe String
+}
+
+model Securite {
+
+    id Int    @id @default(autoincrement())
+    image String
+    alt String
+    titre String 
+    paragraphe String
+    lien String?
+}
+
+model PartenaireSecurite {
+    id Int    @id @default(autoincrement())
+    image String
+    alt String
+    titre String 
+    lien String
+}
+
+model Cybersecurite {
+    id Int    @id @default(autoincrement())
+    img String 
+    alt String
+    paragraphe String
+    titre String?
+    langage String?
+    projet String?
+}
+
+model Parole {
+    id Int    @id @default(autoincrement())
+    image String
+    alt String
+    paragraphe String 
+    lien String
+}
+
+model Usage {
+    id Int    @id @default(autoincrement())
+    image String
+    alt String
+    titre String?
+    paragraphe String 
+    lien String
+}
+model Media {
+    id Int    @id @default(autoincrement())
+    image String
+    alt String
+    titre String
+    lien String
+}

@@ -13,20 +13,29 @@ function Batir() {
     <article className="">
       <section className="bg-greyColor px-4 py-12">
         <h2 className="pb-8 text-center text-2xl">{TITLE}</h2>
-        <div>
-          <Image
-            src={IMAGE}
-            alt={ALTBATIR}
-            height={1293}
-            width={256}
-            layout="responsive"
-            objectFit="cover"
-            className="mb-12"
-          />
-        </div>
-        <div className="flex flex-wrap">
-          <p className="mb-4 font-nunito-light">{PREMIERPARAGRAPHE}</p>
-          <p className="mb-4 font-nunito-light">{SECONDPARAGRAPHE}</p>
+
+        <div className="flex justify-center">
+          <div className="w-[950px] px-16">
+            <div className="flex justify-center">
+              <Image
+                src={IMAGE}
+                alt={ALTBATIR}
+                height={1293}
+                width={256}
+                layout="responsive"
+                objectFit="cover"
+                className="mb-12 max-w-6xl"
+              />
+            </div>
+            <div className="flex flex-wrap lg:justify-between ">
+              <p className="mb-4 font-nunito-light xl:w-[347px]">
+                {PREMIERPARAGRAPHE}
+              </p>
+              <p className="mb-4 font-nunito-light xl:w-[347px]">
+                {SECONDPARAGRAPHE}
+              </p>
+            </div>
+          </div>
         </div>
       </section>
     </article>
