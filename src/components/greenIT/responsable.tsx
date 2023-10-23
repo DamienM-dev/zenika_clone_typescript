@@ -1,22 +1,4 @@
-// IMPORT REACT/NEXT
-
-import Image from "next/image";
-import { useState, useEffect } from "react";
-
-interface Reference {
-  id: number;
-  img: string;
-  alt: string;
-  paragraphe: string;
-  sous_titre: string;
-  langage: string;
-  lien_decouvrir: string;
-  projet: string;
-}
-
-// IMPORT LIB
-
-import DOMPurify from "dompurify";
+import { useEffect, useState } from "react";
 
 // IMPORT SWIPRE
 
@@ -26,39 +8,50 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { Keyboard, Mousewheel, Navigation, Pagination } from "swiper/modules";
+import Image from "next/image";
+import DOMPurify from "dompurify";
 
-// import required modules
-import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
-
-function Reference() {
-  const [references, setReferences] = useState<Reference[]>([]);
-  const [error, setError] = useState(null);
-
-  const TITRE = "Nos références";
+function Responsable() {
+  type Responsable = {
+    id: number;
+    image: string;
+    alt: string;
+    titre: string;
+    paragraphe: string;
+    lien: string;
+  };
+  const TITRE = "Encourager le Numérique responsable";
   const ARROWRIGHT = "/icone/arrowRight.png";
   const ALRARROWRIGHT = "Fléche de droite";
 
+  const [responsables, setResposable] = useState<Responsable[]>([]);
+  const [error, setError] = useState(null);
+
   useEffect(() => {
-    fetch("/api/references")
+    fetch("/api/responsables")
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Un problème est intervenu pendant le chargement");
+          throw new Error(
+            "Une erreur est survenue pendant le chargement de responsable",
+          );
         }
         return response.json();
       })
       .then((data) => {
-        setReferences(data as Reference[]);
+        setResposable(data as Responsable[]);
       })
       .catch((err) => {
         console.log((err as Error).message);
         setError(err as null);
       });
   }, []);
+
   if (error) {
     return <div>Erreur : {error}</div>;
   }
   return (
-    <article className="px-10">
+    <article className="backgourndGradientGreen px-10">
       <h2 className="leading-10b p-10 text-center text-2xl font-bold">
         {TITRE}
       </h2>
@@ -81,49 +74,41 @@ function Reference() {
         }}
         className="mySwiper"
       >
-        {references.map((reference) => (
-          <SwiperSlide key={reference.id} className=" p-2">
-            <ul className="mx-8 rounded-xl shadow-custom ">
-              {reference.id && (
-                <li className="mb-10 lg:flex lg:h-[500px]">
-                  <div className="relative lg:w-1/2">
+        {responsables.map((responsable) => (
+          <SwiperSlide key={responsable.id} className=" p-2">
+            <ul className="mx-8 rounded-xl bg-white shadow-custom">
+              {responsable.id && (
+                <li className="mb-10 lg:flex lg:h-[500px] ">
+                  <div className=" lg:w-1/2">
                     <Image
-                      src={reference.img}
-                      alt={reference.alt}
+                      src={responsable.image}
+                      alt={responsable.alt}
                       height={246}
                       width={380}
                       layout="responsive"
                       objectFit="cover"
                       className="max-h-60 w-full rounded-t-xl lg:!h-full lg:max-h-full lg:rounded-tr-none"
                     />
-                    <h3 className="absolute top-0 p-4 text-white">
-                      {reference.sous_titre}
-                    </h3>
                   </div>
 
                   <div className="m-4 h-96 lg:w-1/2">
-                    <div className="mb-4 text-base leading-5 lg:p-4">
-                      <h3 className="strong ">{reference.projet}</h3>
+                    <div className="px-4">
+                      <h3 className=" p-4">{responsable.titre}</h3>
                       <p
                         dangerouslySetInnerHTML={{
-                          __html: DOMPurify.sanitize(reference.paragraphe),
+                          __html: DOMPurify.sanitize(responsable.paragraphe),
                         }}
-                        className="mb-4 font-nunito-light"
+                        className="font-nunito-light"
                       ></p>
-                      {reference.langage ? (
-                        <>
-                          <h3>Expertises</h3>
-                          <p className="font-nunito-light">
-                            {reference.langage}
-                          </p>
-                        </>
-                      ) : null}
                     </div>
-                    {reference.lien_decouvrir ? (
+
+                    {/* -------- LIEN -------- */}
+
+                    {responsable.lien ? (
                       <div className="p-2 ">
                         <a
                           className="flex justify-end"
-                          href={reference.lien_decouvrir}
+                          href={responsable.lien}
                           target="_blank"
                           rel="noopener noreferrer"
                         >
@@ -153,4 +138,4 @@ function Reference() {
   );
 }
 
-export default Reference;
+export default Responsable;

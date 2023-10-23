@@ -42,10 +42,10 @@ function ForGood() {
       <div className="text-center">
         <h2 className="pb-10 text-2xl">{TITRE}</h2>
       </div>
-      <ul className="m-auto max-w-[1750px] text-center lg:grid lg:grid-cols-2 xl:grid-cols-3">
+      <ul className="m-auto max-w-[1750px] px-8 text-center lg:grid lg:grid-cols-2 xl:grid-cols-3">
         {forGoods.map((forGood) => (
           <div key={forGood.id} className="p-4">
-            <li className="rounded-lg px-2 pb-2 pt-6 shadow-custom lg:h-[454px] lg:w-[500px]">
+            <li className="rounded-lg bg-white px-2 pb-2 pt-6 shadow-custom md:h-[454px] ">
               <div className="flex justify-center">
                 <Image
                   src={forGood.image}
@@ -60,7 +60,7 @@ function ForGood() {
                   dangerouslySetInnerHTML={{
                     __html: DOMPurify.sanitize(forGood.paragraphe),
                   }}
-                  className="text-greyText m-4 font-nunito-light"
+                  className="m-4 font-nunito-light text-greyText"
                 ></p>
               </div>
             </li>

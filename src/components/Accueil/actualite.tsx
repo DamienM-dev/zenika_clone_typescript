@@ -54,7 +54,7 @@ function Actualite() {
   }
 
   return (
-    <div className="px-2 py-10">
+    <article className="px-2 py-10">
       <h2 className="my-9 text-center text-2xl font-bold leading-10">
         {TITRE}
       </h2>
@@ -99,7 +99,7 @@ function Actualite() {
                       </p>
                     </div>
                   </div>
-                  <div>
+                  <div className="flex justify-end p-4">
                     <a
                       className="flex justify-center"
                       href={actualite.lien_decouvrir}
@@ -126,7 +126,7 @@ function Actualite() {
           </SwiperSlide>
         ))}
       </Swiper>
-    </div>
+    </article>
   );
 }
 

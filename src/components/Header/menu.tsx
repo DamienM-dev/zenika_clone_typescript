@@ -13,7 +13,7 @@ type LinkType = {
 const LINKS: LinkType[] = [
   { name: "valeurs", link: "/valeurs" },
   { name: "offres", link: "/offres" },
-  { name: "green it", link: "/green-it" },
+  { name: "green IT", link: "/green-it" },
   { name: "sécurité", link: "/securite" },
   { name: "contenus", link: "/contenus" },
 ];
