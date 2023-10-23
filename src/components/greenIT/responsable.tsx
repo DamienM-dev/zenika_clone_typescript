@@ -102,8 +102,6 @@ function Responsable() {
                       ></p>
                     </div>
 
-                    {/* -------- LIEN -------- */}
-
                     {responsable.lien ? (
                       <div className="p-2 ">
                         <a
