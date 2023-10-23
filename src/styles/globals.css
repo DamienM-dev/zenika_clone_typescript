@@ -34,14 +34,15 @@
       rgb(191, 29, 103) 156.72%
     );
 }
-.articleCommunaute .swiper-wrapper {
-  justify-content: center;
-}
+
 .backgourndGradientGreen {
   background:
     url("/images/background-overlay.png") center bottom / 1393px 795px repeat-x,
     linear-gradient(rgb(0, 227, 236) 0%, rgb(0, 235, 132) 100%);
 }
+// RESPONSIVE DESIGN WRAPPER
+
+
 
 @media screen and (min-width: 1581px) {
   .partenaire .swiper-wrapper {
