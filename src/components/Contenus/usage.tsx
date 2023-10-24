@@ -53,7 +53,7 @@ function Usage() {
       </h2>
       <Swiper
         cssMode={true}
-        navigation={true}
+        navigation={{ hiddenClass: "swiper-button-hidden" }}
         pagination={true}
         mousewheel={true}
         keyboard={true}
