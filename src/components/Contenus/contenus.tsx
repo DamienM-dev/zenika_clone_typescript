@@ -5,12 +5,12 @@ const PARAGRAPHE =
 function Contenus() {
   return (
     <article>
-      <div className="backgourndGradient px-4 py-12">
+      <div className="backgourndGradient px-4 py-12 lg:py-40 lg:pt-10">
         <div className="mb-8 text-center">
           <h2 className="text-2xl text-pinkTitre">{TITRE}</h2>
         </div>
         <div className="px-4">
-          <p className="text-pinkTitre ">{PARAGRAPHE}</p>
+          <p className="text-center text-pinkTitre">{PARAGRAPHE}</p>
         </div>
       </div>
     </article>

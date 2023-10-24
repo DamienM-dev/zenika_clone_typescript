@@ -40,9 +40,19 @@
     url("/images/background-overlay.png") center bottom / 1393px 795px repeat-x,
     linear-gradient(rgb(0, 227, 236) 0%, rgb(0, 235, 132) 100%);
 }
-// RESPONSIVE DESIGN WRAPPER
 
+@media screen and (min-width: 960px) {
+  .centerSlider .swiper-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+}
 
+@media screen and (min-width: 1168px) {
+  .centerSliderUsage .swiper-wrapper {
+    justify-content: center;
+  }
+}
 
 @media screen and (min-width: 1581px) {
   .partenaire .swiper-wrapper {

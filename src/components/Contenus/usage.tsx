@@ -47,7 +47,7 @@ function Usage() {
     return <div>Erreur : {error}</div>;
   }
   return (
-    <article className="px-10">
+    <article className="centerSliderUsage px-10">
       <h2 className="leading-10b p-10 text-center text-2xl font-bold">
         {TITRE}
       </h2>
