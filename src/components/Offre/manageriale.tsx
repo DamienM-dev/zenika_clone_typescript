@@ -1,9 +1,11 @@
+import Link from "next/link";
+
 const TITRE =
   "L'expertise technologique, organisationnelle et managériale au service de vos ambitions";
 const PARAGRAPHE_UN =
   "Nous adaptons, testons et développons de nouvelles méthodes de travail et d’enseignement pour réinventer le management et pour accompagner nos clients à s’adapter aux défis qu’ils rencontrent.";
-const PARAGRAPHE_DEUX =
-  "Nos engagements sont à la hauteur des valeurs que nous portons. Nous sommes impliqués dans des projets responsables et éthiques et guidons nos choix de projets innovants dans ces domaines : Sécurité, Intelligence artificielle, Cloud, Big Data, Green IT.";
+// const PARAGRAPHE_DEUX = "";
+
 function Manageriale() {
   return (
     <article>
@@ -13,7 +15,18 @@ function Manageriale() {
         </div>
         <div className="px-4 font-nunito-light xl:flex xl:px-16">
           <p className="mb-4  text-pinkTitre xl:pr-16">{PARAGRAPHE_UN}</p>
-          <p className="mb-4 text-pinkTitre xl:pr-16">{PARAGRAPHE_DEUX}</p>
+          <p className="mb-4 text-pinkTitre xl:pr-16">
+            Nos engagements sont à la hauteur des valeurs que nous portons. Nous
+            sommes impliqués dans des projets responsables et éthiques et
+            guidons nos choix de projets innovants dans ces domaines :
+            <strong>
+              Sécurité, Intelligence artificielle, Cloud, Big Data,
+              <Link href="/green-it" className="text-blackArrow">
+                Green IT
+              </Link>
+            </strong>
+            .
+          </p>
         </div>
       </div>
     </article>
