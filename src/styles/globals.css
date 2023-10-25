@@ -54,6 +54,12 @@
   }
 }
 
+@media screen and (min-width: 1290px) {
+  .centerSliderParole .swiper-wrapper {
+    justify-content: center;
+  }
+}
+
 @media screen and (min-width: 1581px) {
   .partenaire .swiper-wrapper {
     display: flex;

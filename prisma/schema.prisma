@@ -178,3 +178,20 @@ model Media {
     titre String
     lien String
 }
+
+model Accompagnement {
+    id Int    @id @default(autoincrement())
+    image String
+    alt String
+    titre String
+    paragraphe String 
+    lien String?
+}
+
+model OffrePartenaire {
+    id Int    @id @default(autoincrement())
+    image String
+    alt String
+    titre String 
+    lien String
+}

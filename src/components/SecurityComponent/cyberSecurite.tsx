@@ -27,6 +27,9 @@ import "swiper/css/pagination";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
 
 function CyberSecurite() {
+  const EXPERTISE = "Expertises";
+  const PROJET = "Le projet";
+
   const [cyberSecurites, setCyberSecurites] = useState<CyberSecurite[]>([]);
   const [error, setError] = useState(null);
 
@@ -98,12 +101,12 @@ function CyberSecurite() {
 
                   <div className="m-4 h-96 lg:w-1/2">
                     <div className="mb-4 text-base leading-5 lg:p-4">
-                      <h3 className="strong ">projet</h3>
+                      <h3 className="strong ">{PROJET}</h3>
                       <p className="mb-4 font-nunito-light">
                         {cyberSecurite.paragraphe}
                       </p>
 
-                      <h3>Expertises</h3>
+                      <h3>{EXPERTISE}</h3>
                       <p className="font-nunito-light">
                         {cyberSecurite.langage}
                       </p>

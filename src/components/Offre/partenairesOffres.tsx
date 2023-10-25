@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-interface PartenaireSecurite {
+interface Partenaire {
   id: number;
   image: string;
   alt: string;
-  nom: string;
+  titre: string;
   lien: string;
 }
 
@@ -14,21 +14,20 @@ interface PartenaireSecurite {
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // CSS SWIPER
-
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 
-function PartenaireSecurite() {
+function PartenairesOffres() {
+  const PARAGRAPHE =
+    "Nous sommes en veille permanente sur les technologies qui vont influencer notre domaine dans les 3-5 ans à venir. Et nous y travaillons dès aujourd’hui avec nos partenaires.";
   const TITRE = "Nos partenaires";
 
-  const [partenaireSecurites, setPartenaireSecurites] = useState<
-    PartenaireSecurite[]
-  >([]);
+  const [partenaires, setPartenaires] = useState<Partenaire[]>([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("/api/partenairesSecurites")
+    fetch("/api/partenairesOffres")
       .then((response) => {
         if (!response.ok) {
           throw new Error(
@@ -38,7 +37,7 @@ function PartenaireSecurite() {
         return response.json();
       })
       .then((data) => {
-        setPartenaireSecurites(data as PartenaireSecurite[]);
+        setPartenaires(data as Partenaire[]);
       })
       .catch((err) => {
         console.error((err as Error).message);
@@ -49,10 +48,11 @@ function PartenaireSecurite() {
     return <div>Erreur : {error}</div>;
   }
   return (
-    <article className="centerSlider py-2 pb-4 pt-10">
+    <div className="partenaire bg-greyColor py-2 pb-4 pt-10">
       <h2 className="mb-9 text-center text-2xl font-bold leading-10">
         {TITRE}
       </h2>
+      <p className="px-8 pt-10 text-center text-xl leading-7">{PARAGRAPHE}</p>
 
       <Swiper
         navigation={true}
@@ -74,28 +74,26 @@ function PartenaireSecurite() {
         }}
         className="mySwiper"
       >
-        {partenaireSecurites.map((partenaireSecurite) => (
-          <SwiperSlide key={partenaireSecurite.id}>
-            <a href={partenaireSecurite.lien}>
-              <div className="flex justify-center">
-                <Image
-                  src={partenaireSecurite.image}
-                  alt={partenaireSecurite.alt}
-                  width={112}
-                  height={112}
-                  objectFit="cover"
-                  className="mt-10 rounded-full"
-                />
-                <h3 className="font-semi-bold mt-6 h-7 text-center text-xl leading-7">
-                  {partenaireSecurite.nom}
-                </h3>
-              </div>
-            </a>
+        {partenaires.map((partenaire) => (
+          <SwiperSlide key={partenaire.id}>
+            <div className="flex justify-center ">
+              <Image
+                src={partenaire.image}
+                alt={partenaire.alt}
+                width={112}
+                height={112}
+                objectFit="cover"
+                className="mt-10 h-[112px] w-[112px] rounded-full"
+              />
+            </div>
+            <h3 className="font-semi-bold mt-6 h-7 text-center text-xl leading-7">
+              {partenaire.titre}
+            </h3>
           </SwiperSlide>
         ))}
       </Swiper>
-    </article>
+    </div>
   );
 }
 
-export default PartenaireSecurite;
+export default PartenairesOffres;
