@@ -79,7 +79,7 @@ function Actualite() {
       >
         {actualites.map((actualite) => (
           <SwiperSlide key={actualite.id} className="h-card p-2">
-            <ul className="mx-8 h-[450px] rounded-xl shadow-custom">
+            <ul className="relative mx-8 h-[450px] rounded-xl shadow-custom">
               {actualite.id && (
                 <li>
                   <Image
@@ -99,7 +99,7 @@ function Actualite() {
                       </p>
                     </div>
                   </div>
-                  <div className="flex justify-end p-4">
+                  <div className="absolute bottom-0 right-0 flex justify-end p-4 ">
                     <a
                       className="flex justify-center"
                       href={actualite.lien_decouvrir}

@@ -1,7 +1,5 @@
 import { type Config } from "tailwindcss";
 
-
-
 export default {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
@@ -25,6 +23,7 @@ export default {
         pinkTitre: "rgba(255, 255, 255, 0.87)",
         backCardAgence: "#F3F3F3",
         greyText: "rgba(0, 0, 0, 0.54)",
+        blackArrow: "rgba(0, 0, 0, 0.87)",
       },
       boxShadow: {
         custom:

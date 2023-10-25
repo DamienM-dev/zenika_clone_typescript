@@ -81,7 +81,7 @@ function Expertise() {
                   objectFit="cover"
                 />
               </div>
-              <h3 className="font-semi-bold mt-6 h-7 text-center font-nunito-light text-xl leading-7">
+              <h3 className="font-semi-bold mt-6 h-7 text-center text-xl leading-7">
                 {expertise.nom}
               </h3>
             </SwiperSlide>

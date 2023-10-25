@@ -48,18 +48,20 @@ function CarrouselsPage() {
 
   return (
     <div className="mx-8 gap-x-4 lg:grid lg:h-[800px] lg:grid-cols-2">
-      <div className="flex h-full items-center justify-center lg:px-8">
+      <div className="flex h-full items-center justify-center lg:px-8 lg:pt-8">
         <div className="mt-10 max-w-3xl ">
-          <h1 className="mt-10 text-center text-4xl font-bold leading-10">
+          <h1 className="mt-10  text-4xl font-bold leading-10">
             {TITLEPRINCIPAL}
           </h1>
-          <p className="my-5 text-center font-nunito-light text-xl leading-6">
-            {PARAGRAPHECARROUSEL}
-          </p>
+          <div className="my-5">
+            <p className=" font-nunito-light text-xl leading-6">
+              {PARAGRAPHECARROUSEL}
+            </p>
+          </div>
         </div>
       </div>
 
-      <div className="h-full px-8 lg:flex lg:items-center lg:justify-center">
+      <div className="h-full px-8 pb-8 lg:flex lg:items-center lg:justify-center">
         <Swiper
           spaceBetween={30}
           centeredSlides={true}
@@ -73,14 +75,16 @@ function CarrouselsPage() {
           {carrousels.map((carrousel) => (
             <SwiperSlide key={carrousel.id}>
               {carrousel.id && (
-                <Image
-                  src={carrousel.img}
-                  alt={carrousel.alt}
-                  height={200}
-                  width={200}
-                  layout="responsive"
-                  objectFit="cover"
-                />
+                <div>
+                  <Image
+                    src={carrousel.img}
+                    alt={carrousel.alt}
+                    height={200}
+                    width={200}
+                    layout="responsive"
+                    objectFit="cover"
+                  />
+                </div>
               )}
             </SwiperSlide>
           ))}

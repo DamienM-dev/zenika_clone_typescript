@@ -1,6 +1,10 @@
+/* ---------- IMPORTATION TAILWIND ---------- */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ---------- FONTS ---------- */
 
 @font-face {
   font-family: "Nunito";
@@ -14,16 +18,7 @@
   font-weight: 500;
   font-style: normal;
 }
-
-.swiper-pagination-bullet.swiper-pagination-bullet-active {
-  background-color: #df2147 !important;
-}
-.swiper-pagination-bullet {
-  width: 12px !important;
-  height: 12px !important;
-  border: 1px solid #df2147 !important;
-  background-color: transparent !important;
-}
+/* ---------- LES ARRIEREQS PLANS DE COULEUR DE CERTAIN COMPOSANT ---------- */
 
 .backgourndGradient {
   background:
@@ -40,6 +35,29 @@
     url("/images/background-overlay.png") center bottom / 1393px 795px repeat-x,
     linear-gradient(rgb(0, 227, 236) 0%, rgb(0, 235, 132) 100%);
 }
+
+/* ---------- STYLE DU SLIDER ---------- */
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: #df2147 !important;
+}
+.swiper-pagination-bullet {
+  width: 12px !important;
+  height: 12px !important;
+  border: 1px solid #df2147 !important;
+  background-color: transparent !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: rgba(0, 0, 0, 0.87) !important;
+}
+
+.swiper-button-disabled {
+  display: none !important;
+}
+
+/* ---------- MEDIA QUERIES POUR CENTRER LES SLIDERS ---------- */
 
 @media screen and (min-width: 960px) {
   .centerSlider .swiper-wrapper {

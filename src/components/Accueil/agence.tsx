@@ -6,6 +6,7 @@ interface Agence {
   img: string;
   alt: string;
   titre: string;
+  lien: string;
 }
 
 function Agence() {
@@ -46,18 +47,20 @@ function Agence() {
         {agences.map((agence) => (
           <div key={agence.id} className="p-5">
             <div className=" mx-auto w-full max-w-sm rounded-t-xl">
-              <Image
-                src={agence.img}
-                alt={agence.alt}
-                width={210}
-                height={160}
-                layout="responsive"
-                objectFit="cover"
-                className="rounded-t-xl"
-              />
-              <div className="rounded-b-xl bg-backCardAgence p-4 text-center">
-                <h3 className="capitalize text-pinkZenika">{agence.titre}</h3>
-              </div>
+              <a href={agence.lien} target="_blank">
+                <Image
+                  src={agence.img}
+                  alt={agence.alt}
+                  width={210}
+                  height={160}
+                  layout="responsive"
+                  objectFit="cover"
+                  className="rounded-t-xl"
+                />
+                <div className="rounded-b-xl bg-backCardAgence p-4 text-center">
+                  <h3 className="capitalize text-pinkZenika">{agence.titre}</h3>
+                </div>
+              </a>
             </div>
           </div>
         ))}

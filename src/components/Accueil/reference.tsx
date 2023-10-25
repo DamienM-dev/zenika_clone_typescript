@@ -58,7 +58,7 @@ function Reference() {
     return <div>Erreur : {error}</div>;
   }
   return (
-    <article className="px-10">
+    <article className="px-2 pb-12 pt-10">
       <h2 className="leading-10b p-10 text-center text-2xl font-bold">
         {TITRE}
       </h2>
@@ -86,23 +86,21 @@ function Reference() {
             <ul className="mx-8 rounded-xl shadow-custom ">
               {reference.id && (
                 <li className="mb-10 lg:flex lg:h-[500px]">
-                  <div className="relative lg:w-1/2">
+                  <div className="relative h-[308px] lg:h-[500px] lg:w-1/2">
                     <Image
                       src={reference.img}
                       alt={reference.alt}
-                      height={246}
-                      width={380}
-                      layout="responsive"
+                      layout="fill"
                       objectFit="cover"
-                      className="max-h-60 w-full rounded-t-xl lg:!h-full lg:max-h-full lg:rounded-tr-none"
+                      className="!h-full w-full rounded-t-xl lg:max-h-full lg:rounded-tr-none"
                     />
                     <h3 className="absolute top-0 p-4 text-white">
                       {reference.sous_titre}
                     </h3>
                   </div>
 
-                  <div className="m-4 h-96 lg:w-1/2">
-                    <div className="mb-4 text-base leading-5 lg:p-4">
+                  <div className="relative m-4 lg:h-[490px] lg:w-1/2">
+                    <div className="mb-4 px-4 pb-6 pt-4 text-base leading-5 lg:p-4">
                       <h3 className="strong ">{reference.projet}</h3>
                       <p
                         dangerouslySetInnerHTML={{
@@ -120,7 +118,7 @@ function Reference() {
                       ) : null}
                     </div>
                     {reference.lien_decouvrir ? (
-                      <div className="p-2 ">
+                      <div className="absolute bottom-0 right-0 p-2">
                         <a
                           className="flex justify-end"
                           href={reference.lien_decouvrir}
