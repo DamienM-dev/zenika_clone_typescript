@@ -38,7 +38,7 @@ function Initiative() {
   }
 
   return (
-    <div className="px-2 py-10">
+    <article className="px-2 py-10">
       <div className="text-center">
         <h2 className="pb-10 text-2xl">{TITRE}</h2>
       </div>
@@ -67,7 +67,7 @@ function Initiative() {
           </div>
         ))}
       </ul>
-    </div>
+    </article>
   );
 }
 

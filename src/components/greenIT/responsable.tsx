@@ -76,7 +76,7 @@ function Responsable() {
       >
         {responsables.map((responsable) => (
           <SwiperSlide key={responsable.id} className=" p-2">
-            <ul className="mx-8 rounded-xl bg-white shadow-custom">
+            <ul className="relative mx-8 rounded-xl bg-white shadow-custom">
               {responsable.id && (
                 <li className="mb-10 lg:flex lg:h-[500px] ">
                   <div className=" lg:w-1/2">
@@ -103,7 +103,7 @@ function Responsable() {
                     </div>
 
                     {responsable.lien ? (
-                      <div className="p-2 ">
+                      <div className="absolute bottom-0 right-0 p-2">
                         <a
                           className="flex justify-end"
                           href={responsable.lien}

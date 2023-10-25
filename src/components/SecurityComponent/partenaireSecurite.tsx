@@ -5,7 +5,7 @@ interface PartenaireSecurite {
   id: number;
   image: string;
   alt: string;
-  nom: string;
+  titre: string;
   lien: string;
 }
 
@@ -49,7 +49,7 @@ function PartenaireSecurite() {
     return <div>Erreur : {error}</div>;
   }
   return (
-    <article className="centerSlider py-2 pb-4 pt-10">
+    <article className="partenaire bg-greyColor py-2 pb-4 pt-10">
       <h2 className="mb-9 text-center text-2xl font-bold leading-10">
         {TITRE}
       </h2>
@@ -74,23 +74,21 @@ function PartenaireSecurite() {
         }}
         className="mySwiper"
       >
-        {partenaireSecurites.map((partenaireSecurite) => (
-          <SwiperSlide key={partenaireSecurite.id}>
-            <a href={partenaireSecurite.lien}>
-              <div className="flex justify-center">
-                <Image
-                  src={partenaireSecurite.image}
-                  alt={partenaireSecurite.alt}
-                  width={112}
-                  height={112}
-                  objectFit="cover"
-                  className="mt-10 rounded-full"
-                />
-                <h3 className="font-semi-bold mt-6 h-7 text-center text-xl leading-7">
-                  {partenaireSecurite.nom}
-                </h3>
-              </div>
-            </a>
+        {partenaireSecurites.map((partenaire) => (
+          <SwiperSlide key={partenaire.id}>
+            <div className="flex justify-center">
+              <Image
+                src={partenaire.image}
+                alt={partenaire.alt}
+                width={112}
+                height={112}
+                objectFit="cover"
+                className="mt-10 rounded-full"
+              />
+            </div>
+            <h3 className="font-semi-bold mt-6 h-7 text-center text-xl leading-7">
+              {partenaire.titre}
+            </h3>
           </SwiperSlide>
         ))}
       </Swiper>

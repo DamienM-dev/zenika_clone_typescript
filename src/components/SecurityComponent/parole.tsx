@@ -72,8 +72,8 @@ function Parole() {
           >
             {paroles.map((parole) => (
               <SwiperSlide key={parole.id}>
-                <ul className="mb-8 ">
-                  <li className="mx-8 rounded-xl shadow-custom">
+                <ul className="relative mb-8">
+                  <li className="relative mx-8 rounded-xl shadow-custom">
                     <div className="flex h-60">
                       <Image
                         src={parole.image}
@@ -90,7 +90,7 @@ function Parole() {
                         {parole.paragraphe}
                       </p>
 
-                      <div className="p-2 ">
+                      <div className="absolute bottom-0 right-0 p-2">
                         <a
                           className="flex justify-end"
                           href={parole.lien}
