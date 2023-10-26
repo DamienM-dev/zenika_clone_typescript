@@ -73,7 +73,7 @@ function Usage() {
         {usages.map((usage) => (
           <SwiperSlide key={usage.id} className=" p-2">
             <div className="flex justify-center">
-              <ul className="mx-8 mb-10 max-w-[660px] rounded-xl shadow-custom">
+              <ul className="relative mx-8 mb-10 max-w-[660px] rounded-xl shadow-custom">
                 {usage.id && (
                   <li className=" lg:flex lg:h-[500px]">
                     <div className="relative lg:w-1/2">
@@ -105,8 +105,9 @@ function Usage() {
                           {usage.paragraphe}
                         </p>
                       </div>
+
                       {usage.lien ? (
-                        <div className="p-2 ">
+                        <div className="absolute bottom-0 right-0 p-2">
                           <a
                             className="flex justify-end"
                             href={usage.lien}

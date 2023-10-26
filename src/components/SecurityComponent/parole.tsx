@@ -68,7 +68,7 @@ function Parole() {
                 spaceBetween: 60,
               },
             }}
-            className="mySwiper "
+            className="mySwiper"
           >
             {paroles.map((parole) => (
               <SwiperSlide key={parole.id}>
