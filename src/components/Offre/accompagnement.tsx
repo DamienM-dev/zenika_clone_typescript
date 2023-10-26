@@ -40,14 +40,14 @@ function Accompagnement() {
   }
 
   return (
-    <article className="px-2 py-10">
+    <article className="dark:bg-bgDarkMode px-2 py-10 dark:text-white">
       <div className="text-center">
         <h2 className="pb-10 text-2xl">{TITRE}</h2>
       </div>
-      <ul className="m-auto max-w-[1750px] px-8 text-center lg:grid lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+      <ul className=" m-auto max-w-[1750px] px-8 text-center lg:grid lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
         {accompagnements.map((accompagnement) => (
           <div key={accompagnement.id} className="p-4">
-            <li className="rounded-lg bg-white px-2 pb-2 pt-6 shadow-custom md:h-[454px] ">
+            <li className="dark:bg-bgDarkModeGrey rounded-lg bg-white px-2 pb-2 pt-6 shadow-custom md:h-[454px]">
               <div className="flex justify-center">
                 <Image
                   src={accompagnement.image}
@@ -56,9 +56,9 @@ function Accompagnement() {
                   width={150}
                 />
               </div>
-              <div className="p-4">
+              <div className="p-4 ">
                 <h3>{accompagnement.titre}</h3>
-                <p className="m-4 font-nunito-light text-greyText">
+                <p className="m-4 font-nunito-light text-greyText dark:text-white">
                   {accompagnement.paragraphe}
                 </p>
               </div>

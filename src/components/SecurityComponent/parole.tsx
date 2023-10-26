@@ -72,8 +72,8 @@ function Parole() {
           >
             {paroles.map((parole) => (
               <SwiperSlide key={parole.id}>
-                <ul className="relative mb-8">
-                  <li className="relative mx-8 rounded-xl shadow-custom">
+                <ul className=" relative mb-8 dark:text-white">
+                  <li className=" relative mx-8 rounded-xl shadow-custom">
                     <div className="flex h-60">
                       <Image
                         src={parole.image}
@@ -85,7 +85,7 @@ function Parole() {
                         className="rounded-t-xl"
                       />
                     </div>
-                    <div className=" h-52 rounded-b-xl bg-white p-4">
+                    <div className=" dark:bg-bgDarModeLow h-52 rounded-b-xl bg-white p-4">
                       <p className="mb-4 font-nunito-light">
                         {parole.paragraphe}
                       </p>

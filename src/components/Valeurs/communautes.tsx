@@ -43,7 +43,7 @@ function Communaute() {
   }
 
   return (
-    <article className="articleCommunaute">
+    <article className="articleCommunaute dark:bg-bgDarkMode dark:text-white">
       <section className="px-4 py-12">
         <h3 className="pb-8 text-center text-2xl">{TITRE}</h3>
         <div className="mx-auto w-full">
@@ -83,7 +83,7 @@ function Communaute() {
                         className="rounded-t-xl"
                       />
                     </div>
-                    <div className=" h-52 rounded-b-xl bg-white p-4">
+                    <div className=" dark:bg-bgDarkModeGrey h-52 rounded-b-xl bg-white p-4">
                       <h3>{communaute.titre}</h3>
                       <p className="mb-4 font-nunito-light">
                         {communaute.paragraphe}

@@ -7,7 +7,7 @@ const PARAGRAPHE_DEUX =
 function Impact() {
   return (
     <article>
-      <div className="bg-greyColor px-4 py-12 text-center xl:px-40 xl:pb-12 xl:pt-10">
+      <div className="dark:bg-bgDarModeLow bg-greyColor px-4 py-12 text-center dark:dark:text-white xl:px-40 xl:pb-12 xl:pt-10">
         <h2 className="pb-8 text-2xl">{TITRE}</h2>
         <div className="text-left font-nunito-light xl:flex xl:px-16">
           <div className="mx-auto mr-16 w-full px-4">

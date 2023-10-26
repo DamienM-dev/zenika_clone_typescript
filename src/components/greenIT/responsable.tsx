@@ -76,7 +76,7 @@ function Responsable() {
       >
         {responsables.map((responsable) => (
           <SwiperSlide key={responsable.id} className=" p-2">
-            <ul className="relative mx-8 rounded-xl bg-white shadow-custom">
+            <ul className="dark:bg-bgDarkModeGrey relative mx-8 rounded-xl bg-white shadow-custom dark:text-white">
               {responsable.id && (
                 <li className="mb-10 lg:flex lg:h-[500px] ">
                   <div className=" lg:w-1/2">

@@ -6,7 +6,7 @@ const PARAGRAPHE_DEUX =
 
 function Enjeux() {
   return (
-    <article>
+    <article className="dark:bg-bgDarkMode dark:text-white">
       <div className="px-4 py-12 text-center xl:px-40 xl:pb-12 xl:pt-10">
         <h2 className="pb-8 text-2xl">{TITRE}</h2>
         <div className="text-left font-nunito-light xl:flex xl:px-16">

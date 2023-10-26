@@ -47,8 +47,8 @@ function Usage() {
     return <div>Erreur : {error}</div>;
   }
   return (
-    <article className="centerSliderUsage px-10">
-      <h2 className="leading-10b p-10 text-center text-2xl font-bold">
+    <article className="centerSliderUsage dark:bg-bgDarModeLow px-10">
+      <h2 className="leading-10b p-10 text-center text-2xl font-bold dark:text-white">
         {TITRE}
       </h2>
       <Swiper
@@ -75,7 +75,7 @@ function Usage() {
             <div className="flex justify-center">
               <ul className="relative mx-8 mb-10 max-w-[660px] rounded-xl shadow-custom">
                 {usage.id && (
-                  <li className=" lg:flex lg:h-[500px]">
+                  <li className="dark:bg-bgDarkModeGrey dark:text-white lg:flex lg:h-[500px]">
                     <div className="relative lg:w-1/2">
                       <Image
                         src={usage.image}

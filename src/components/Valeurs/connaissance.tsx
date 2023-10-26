@@ -69,7 +69,7 @@ function Connaissance() {
           {connaissances.map((connaissance) => (
             <SwiperSlide key={connaissance.id}>
               <ul className="">
-                <li className="mx-8 rounded-b-xl shadow-custom">
+                <li className=" mx-8 rounded-b-xl shadow-custom dark:text-white ">
                   <div className="flex h-60">
                     <Image
                       src={connaissance.image}
@@ -81,7 +81,7 @@ function Connaissance() {
                       className="rounded-t-xl"
                     />
                   </div>
-                  <div className=" h-52 rounded-b-xl bg-white p-4">
+                  <div className=" dark:bg-bgDarkModeGrey h-52 rounded-b-xl bg-white p-4">
                     <h3>{connaissance.titre}</h3>
                     <p className="mb-4 font-nunito-light">
                       {connaissance.paragraphe}

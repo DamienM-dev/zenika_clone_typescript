@@ -52,8 +52,8 @@ function Diversity() {
   }
 
   return (
-    <article className="bg-greyColor px-2 pb-12 pt-10">
-      <h2 className="my-9 text-center text-2xl font-bold leading-10">
+    <article className="dark:bg-bgDarModeLow bg-greyColor px-2 pb-12 pt-10">
+      <h2 className="my-9 text-center text-2xl font-bold leading-10 dark:text-white">
         {TITRE}
       </h2>
       <Swiper
@@ -79,7 +79,7 @@ function Diversity() {
           <SwiperSlide key={diversity.id} className="h-card p-2">
             <ul className="relative mx-8 mb-10 h-[500px] rounded-xl shadow-custom">
               {diversity.id && (
-                <li className="lg:flex lg:h-full">
+                <li className="dark:bg-bgDarkModeGrey dark:text-white lg:flex lg:h-full">
                   <div className="lg:w-1/2">
                     <Image
                       src={diversity.image}
