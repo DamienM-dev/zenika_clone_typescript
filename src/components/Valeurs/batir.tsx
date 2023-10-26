@@ -11,7 +11,7 @@ function Batir() {
 
   return (
     <article className="">
-      <section className="bg-greyColor px-4 py-12">
+      <section className="dark:bg-bgDarkModeGrey bg-greyColor px-4 py-12 dark:text-white">
         <h2 className="pb-8 text-center text-2xl">{TITLE}</h2>
 
         <div className="flex justify-center">

@@ -47,7 +47,7 @@ function CarrouselsPage() {
   }
 
   return (
-    <div className="mx-8 gap-x-4 lg:grid lg:h-[800px] lg:grid-cols-2">
+    <article className="mx-8 gap-x-4 lg:grid lg:h-[800px] lg:grid-cols-2">
       <div className="flex h-full items-center justify-center lg:px-8 lg:pt-8">
         <div className="mt-10 max-w-3xl ">
           <h1 className="mt-10  text-4xl font-bold leading-10">
@@ -90,7 +90,7 @@ function CarrouselsPage() {
           ))}
         </Swiper>
       </div>
-    </div>
+    </article>
   );
 }
 

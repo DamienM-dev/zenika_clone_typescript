@@ -46,7 +46,7 @@ function Social() {
                   alt={social.alt}
                   width={20}
                   height={20}
-                  className="invert filter"
+                  className="invert filter dark:invert-0"
                 />
                 <h3 className="ps-1 font-nunito-light">{social.titre}</h3>
               </a>
@@ -64,7 +64,7 @@ function Social() {
                   alt={social.alt}
                   width={20}
                   height={20}
-                  className="invert filter"
+                  className="invert filter dark:invert-0"
                 />
                 <h3 className="ps-1 font-nunito-light">{social.titre}</h3>
               </a>

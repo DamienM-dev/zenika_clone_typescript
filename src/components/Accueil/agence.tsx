@@ -57,8 +57,10 @@ function Agence() {
                   objectFit="cover"
                   className="rounded-t-xl"
                 />
-                <div className="rounded-b-xl bg-backCardAgence p-4 text-center">
-                  <h3 className="capitalize text-pinkZenika">{agence.titre}</h3>
+                <div className="dark:bg-bgDarModeLow rounded-b-xl bg-greyColor p-4 text-center">
+                  <h3 className="capitalize text-pinkZenika dark:text-white">
+                    {agence.titre}
+                  </h3>
                 </div>
               </a>
             </div>

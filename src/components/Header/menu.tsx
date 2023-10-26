@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import DarkMode from "./darkMode";
 //navigation lien
 const MENU = "/icone/menu.png";
 const ALTMENU = " Menu de navigation";
@@ -9,6 +10,14 @@ type LinkType = {
   name: string;
   link: string;
 };
+
+// type Langages = {
+//   images: string;
+//   name: string;
+//   link: string;
+// };
+
+// ---------- LIEN VERS PAGE ----------
 
 const LINKS: LinkType[] = [
   { name: "valeurs", link: "/valeurs" },
@@ -23,7 +32,19 @@ const LINKSSECONDARY: LinkType[] = [
   { name: "formation", link: "/formation" },
 ];
 
+// ---------- CONTACT ----------
+
 const CONTACT: LinkType[] = [{ name: "contact", link: "/contact" }];
+
+// ---------- SITE MULTILANGE  ----------
+
+// const MULTILANGUE: Langages[] = [
+//   { images: "", name: "FR (FRANCE)", link: "/" },
+//   { images: "", name: "FR (CANADA)", link: "/" },
+//   { images: "", name: "EN (ENGLISH)", link: "/" },
+//   { images: "", name: "EN (GLOBAL)", link: "/" },
+//   { images: "", name: "EN (SINGAPOR)", link: "/" },
+// ];
 
 function Menu() {
   const [open, setOpen] = useState(false);
@@ -75,7 +96,7 @@ function Menu() {
                 <a
                   key={contact.name}
                   href={contact.link}
-                  className="mb-6 mt-4 rounded-full border border-black bg-backCardAgence p-4 text-xl uppercase"
+                  className="mb-6 mt-4 rounded-full border border-black bg-greyColor p-4 text-xl uppercase"
                 >
                   {contact.name}
                 </a>
@@ -104,6 +125,18 @@ function Menu() {
             </li>
           ))}
         </ul>
+        <div>
+          {CONTACT.map((contact) => (
+            <a
+              key={contact.name}
+              href={contact.link}
+              className="dark:bg-bgDarModeLow  my-2.5 rounded-full border border-black bg-greyColor p-3.5 text-xl uppercase"
+            >
+              {contact.name}
+            </a>
+          ))}
+        </div>
+        <DarkMode />
       </div>
     </nav>
   );

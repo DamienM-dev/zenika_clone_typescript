@@ -2,6 +2,7 @@ import { type Config } from "tailwindcss";
 
 export default {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: "class",
   theme: {
     fontWeight: {
       normal: "400",
@@ -21,9 +22,11 @@ export default {
         greyColor: "#F3F3F3",
         pinkZenika: "#DF2147",
         pinkTitre: "rgba(255, 255, 255, 0.87)",
-        backCardAgence: "#F3F3F3",
         greyText: "rgba(0, 0, 0, 0.54)",
         blackArrow: "rgba(0, 0, 0, 0.87)",
+        bgDarkMode: "#121212",
+        bgDarModeLow: "#1e1e1e",
+        bgDarkModeGrey: "#292929",
       },
       boxShadow: {
         custom:

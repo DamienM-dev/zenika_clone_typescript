@@ -85,7 +85,7 @@ function Reference() {
           <SwiperSlide key={reference.id} className=" p-2">
             <ul className="mx-8 rounded-xl shadow-custom ">
               {reference.id && (
-                <li className="mb-10 lg:flex lg:h-[500px]">
+                <li className="dark:bg-bgDarkModeGrey mb-10 lg:flex lg:h-[500px]">
                   <div className="relative h-[308px] lg:h-[500px] lg:w-1/2">
                     <Image
                       src={reference.img}

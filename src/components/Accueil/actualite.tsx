@@ -79,7 +79,7 @@ function Actualite() {
       >
         {actualites.map((actualite) => (
           <SwiperSlide key={actualite.id} className="h-card p-2">
-            <ul className="relative mx-8 h-[450px] rounded-xl shadow-custom">
+            <ul className="dark:bg-bgDarkModeGrey relative mx-8 h-[450px] rounded-xl shadow-custom">
               {actualite.id && (
                 <li>
                   <Image

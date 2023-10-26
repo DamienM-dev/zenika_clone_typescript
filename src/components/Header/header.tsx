@@ -7,8 +7,8 @@ const ALT = "Logo de Zenika";
 
 export default function Header() {
   return (
-    <header className="h-14 shadow-xl ">
-      <div className="me-14 flex justify-between px-2.5">
+    <header className=" dark:bg-bgDarkMode shadow-xl dark:text-white">
+      <div className="flex justify-between p-2.5 xl:mx-16">
         <Image src={LOGOWHITE} alt={ALT} width={165} height={52} />
         <Menu />
       </div>

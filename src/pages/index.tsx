@@ -7,7 +7,7 @@ import Agence from "../components/Accueil/agence";
 
 export default function Home() {
   return (
-    <div>
+    <div className="dark:bg-bgDarkMode dark:text-white">
       <Carrousel />
       <Expertise />
       <Reference />

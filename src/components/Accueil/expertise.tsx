@@ -44,7 +44,7 @@ function Expertise() {
   }
 
   return (
-    <div className="bg-greyColor py-2 pb-4 pt-10">
+    <div className="dark:bg-bgDarModeLow bg-greyColor py-2 pb-4 pt-10">
       <div className="h-64">
         <h2 className="mb-10 text-center text-2xl font-bold leading-10">
           {TITREEXPERTISE}

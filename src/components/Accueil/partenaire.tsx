@@ -47,7 +47,7 @@ function Partenaire() {
     return <div>Erreur : {error}</div>;
   }
   return (
-    <article className="partenaire bg-greyColor py-2 pb-4 pt-10">
+    <article className="partenaire dark:bg-bgDarModeLow bg-greyColor py-2 pb-4 pt-10 ">
       <h2 className="mb-9 text-center text-2xl font-bold leading-10">
         {TITRE}
       </h2>
