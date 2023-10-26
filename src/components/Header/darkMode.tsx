@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function DarkMode() {
   const ALTDARK = "Utiliser théme sombre";
@@ -9,8 +9,14 @@ function DarkMode() {
   const SOLEIL = "/images/sun.png";
 
   const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    darkMode
+      ? document.documentElement.classList.add("dark")
+      : document.documentElement.classList.remove("dark");
+  }, [darkMode]);
   return (
-    <div onClick={() => setDarkMode(!darkMode)}>
+    <div className="mx-4 cursor-pointer" onClick={() => setDarkMode(!darkMode)}>
       <Image
         src={darkMode ? LUNE : SOLEIL}
         alt={darkMode ? ALTDARK : ALTLIGHT}

@@ -59,7 +59,7 @@ function Menu() {
         {open ? (
           // ---------- MENU PETIT ECRAN ----------
           <div
-            className={`duration-900 fixed right-0 top-0 z-50 h-screen w-80 transform bg-white px-6 pt-10 text-center transition-transform ease-out ${
+            className={`dark:bg-bgDarkMode duration-900 fixed right-0 top-0 z-50 h-screen w-80 transform bg-white px-6 pt-10 text-center transition-transform ease-out dark:text-white ${
               open ? "translate-x-0" : "translate-x-full"
             }`}
           >
@@ -96,12 +96,13 @@ function Menu() {
                 <a
                   key={contact.name}
                   href={contact.link}
-                  className="mb-6 mt-4 rounded-full border border-black bg-greyColor p-4 text-xl uppercase"
+                  className="dark:bg-bgDarModeLow mb-6 mt-4 rounded-full border border-black bg-greyColor p-4 text-xl uppercase dark:border-white"
                 >
                   {contact.name}
                 </a>
               ))}
             </div>
+            <DarkMode />
           </div>
         ) : null}
         {/* ---------- MENU GRAND ECRAN ---------- */}
@@ -130,7 +131,7 @@ function Menu() {
             <a
               key={contact.name}
               href={contact.link}
-              className="dark:bg-bgDarModeLow  my-2.5 rounded-full border border-black bg-greyColor p-3.5 text-xl uppercase"
+              className="dark:bg-bgDarModeLow my-2.5 rounded-full  border border-black bg-greyColor p-3.5 text-xl uppercase dark:border-white "
             >
               {contact.name}
             </a>
