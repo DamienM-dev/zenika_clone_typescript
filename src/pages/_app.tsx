@@ -3,6 +3,7 @@ import { SessionProvider } from "next-auth/react";
 import { type AppType } from "next/app";
 import Footer from "~/components/Footer/footer";
 import Header from "~/components/Header/header";
+import ThemeContexteProvider from "../context/contextDarkMode";
 
 import "~/styles/globals.css";
 
@@ -11,11 +12,13 @@ const MyApp: AppType<{ session: Session | null }> = ({
   pageProps: { session, ...pageProps },
 }) => {
   return (
-    <SessionProvider session={session}>
-      <Header />
-      <Component {...pageProps} />
-      <Footer />
-    </SessionProvider>
+    <ThemeContexteProvider>
+      <SessionProvider session={session}>
+        <Header />
+        <Component {...pageProps} />
+        <Footer />
+      </SessionProvider>
+    </ThemeContexteProvider>
   );
 };
 

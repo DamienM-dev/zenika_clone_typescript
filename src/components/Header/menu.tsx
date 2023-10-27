@@ -1,10 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import DarkMode from "./darkMode";
-//navigation lien
-const MENU = "/icone/menu.png";
-const ALTMENU = " Menu de navigation";
 
 type LinkType = {
   name: string;
@@ -50,16 +46,25 @@ function Menu() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="self-center">
+    <nav className="self-center pl-14">
       <div
         className="absolute right-8 top-3 h-7 w-7 cursor-pointer xl:hidden"
         onClick={() => setOpen(!open)}
       >
-        <Image src={MENU} alt={ALTMENU} height={36} width={30} />
+        <svg
+          viewBox="0 0 100 80"
+          width="20"
+          height="40"
+          className="dark:invert"
+        >
+          <rect width="100" height="20"></rect>
+          <rect y="30" width="100" height="20"></rect>
+          <rect y="60" width="100" height="20"></rect>
+        </svg>
         {open ? (
           // ---------- MENU PETIT ECRAN ----------
           <div
-            className={`dark:bg-bgDarkMode duration-900 fixed right-0 top-0 z-50 h-screen w-80 transform bg-white px-6 pt-10 text-center transition-transform ease-out dark:text-white ${
+            className={`duration-900 fixed right-0 top-0 z-50 h-screen w-80 transform bg-white px-6 pt-10 text-center transition-transform ease-out dark:bg-bgDarkMode dark:text-white ${
               open ? "translate-x-0" : "translate-x-full"
             }`}
           >
@@ -96,7 +101,7 @@ function Menu() {
                 <a
                   key={contact.name}
                   href={contact.link}
-                  className="dark:bg-bgDarModeLow mb-6 mt-4 rounded-full border border-black bg-greyColor p-4 text-xl uppercase dark:border-white"
+                  className="mb-6 mt-4 rounded-full border border-black bg-greyColor p-4 text-xl uppercase dark:border-white dark:bg-bgDarModeLow"
                 >
                   {contact.name}
                 </a>
@@ -108,7 +113,7 @@ function Menu() {
         {/* ---------- MENU GRAND ECRAN ---------- */}
       </div>
       <div className="hidden xl:flex">
-        <ul className=" xl:flex">
+        <ul className="xl:flex xl:self-center">
           {LINKS.map((link) => (
             <li key={link.name} className="font-nunito-light xl:mr-8">
               <Link className="uppercase" href={link.link}>
@@ -117,7 +122,7 @@ function Menu() {
             </li>
           ))}
         </ul>
-        <ul className=" xl:flex">
+        <ul className=" xl:flex xl:self-center">
           {LINKSSECONDARY.map((linkSecondary) => (
             <li key={linkSecondary.name} className="font-nunito-light xl:mr-8">
               <Link className="uppercase" href={linkSecondary.link}>
@@ -131,7 +136,7 @@ function Menu() {
             <a
               key={contact.name}
               href={contact.link}
-              className="dark:bg-bgDarModeLow my-2.5 rounded-full  border border-black bg-greyColor p-3.5 text-xl uppercase dark:border-white "
+              className="my-2.5 rounded-full border  border-black bg-greyColor p-3.5 text-xl uppercase dark:border-white dark:bg-bgDarModeLow "
             >
               {contact.name}
             </a>
