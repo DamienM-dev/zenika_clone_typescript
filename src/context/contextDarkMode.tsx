@@ -8,11 +8,15 @@ const switchLogo = {
   dark: LOGOWHITE,
 };
 
+type ThemeContexteProviderProps = {
+  children: React.ReactNode;
+};
+
 export const ThemeContexte = createContext(switchLogo.dark);
 
 const isBrowser = typeof document !== "undefined";
 
-const ThemeContexteProvider = (props) => {
+const ThemeContexteProvider: React.FC<ThemeContexteProviderProps> = (props) => {
   const [logo, setLogo] = useState(switchLogo.light);
 
   useEffect(() => {
