@@ -59,7 +59,7 @@ function Reference() {
   }
   return (
     <article className="px-2 pb-12 pt-10">
-      <h2 className="leading-10b p-10 text-center text-2xl font-bold">
+      <h2 className="p-10 text-center text-2xl font-bold leading-10">
         {TITRE}
       </h2>
       <Swiper
@@ -85,7 +85,7 @@ function Reference() {
           <SwiperSlide key={reference.id} className=" p-2">
             <ul className="mx-8 rounded-xl shadow-custom ">
               {reference.id && (
-                <li className="dark:bg-bgDarkModeGrey mb-10 lg:flex lg:h-[500px]">
+                <li className="mb-10 dark:bg-bgDarkModeGrey lg:flex lg:h-[500px]">
                   <div className="relative h-[308px] lg:h-[500px] lg:w-1/2">
                     <Image
                       src={reference.img}

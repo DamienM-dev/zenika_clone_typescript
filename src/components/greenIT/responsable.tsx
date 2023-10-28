@@ -51,7 +51,7 @@ function Responsable() {
     return <div>Erreur : {error}</div>;
   }
   return (
-    <article className="backgourndGradientGreen px-10">
+    <article className="backgourndGradientGreen px-2 pb-12 pt-10">
       <h2 className="leading-10b p-10 text-center text-2xl font-bold">
         {TITRE}
       </h2>
@@ -76,32 +76,29 @@ function Responsable() {
       >
         {responsables.map((responsable) => (
           <SwiperSlide key={responsable.id} className=" p-2">
-            <ul className="dark:bg-bgDarkModeGrey relative mx-8 rounded-xl bg-white shadow-custom dark:text-white">
+            <ul className="mx-8 rounded-xl shadow-custom ">
               {responsable.id && (
-                <li className="mb-10 lg:flex lg:h-[500px] ">
-                  <div className=" lg:w-1/2">
+                <li className=" mb-10 overflow-hidden rounded-lg bg-white dark:bg-bgDarkModeGrey lg:flex lg:h-[500px]">
+                  <div className="  relative h-[308px] lg:h-[500px] lg:w-1/2">
                     <Image
                       src={responsable.image}
                       alt={responsable.alt}
-                      height={246}
-                      width={380}
-                      layout="responsive"
+                      layout="fill"
                       objectFit="cover"
-                      className="max-h-60 w-full rounded-t-xl lg:!h-full lg:max-h-full lg:rounded-tr-none"
+                      className="!h-full  w-full lg:max-h-full lg:rounded-tr-none"
                     />
                   </div>
 
-                  <div className="m-4 h-96 lg:w-1/2">
-                    <div className="px-4">
-                      <h3 className=" p-4">{responsable.titre}</h3>
+                  <div className="relative m-4 lg:h-[490px] lg:w-1/2">
+                    <div className="mb-4 px-4 pb-6 pt-4 text-base leading-5 lg:p-4">
+                      <h3 className="p-4 ">{responsable.titre}</h3>
                       <p
                         dangerouslySetInnerHTML={{
                           __html: DOMPurify.sanitize(responsable.paragraphe),
                         }}
-                        className="font-nunito-light"
+                        className="mb-4 font-nunito-light"
                       ></p>
                     </div>
-
                     {responsable.lien ? (
                       <div className="absolute bottom-0 right-0 p-2">
                         <a
@@ -116,7 +113,7 @@ function Responsable() {
                               alt={ALRARROWRIGHT}
                               width={24}
                               height={24}
-                              className="mr-2"
+                              className=" mr-2"
                             />
                           </span>
                           <span className="uppercase text-pinkZenika">
