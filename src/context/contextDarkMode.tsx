@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 
-const LOGODARK = "/images/logo_dark.svg";
-const LOGOWHITE = "/images/logo_light.svg";
+const LOGODARK = "./images/logo_dark.svg";
+const LOGOWHITE = "./images/logo_light.svg";
 
 const switchLogo = {
-  dark: LOGODARK,
-  light: LOGOWHITE,
+  light: LOGODARK,
+  dark: LOGOWHITE,
 };
 
-export const ThemeContexte = React.createContext(switchLogo.light);
+export const ThemeContexte = createContext(switchLogo.dark);
 
 const isBrowser = typeof document !== "undefined";
 
@@ -16,13 +16,35 @@ const ThemeContexteProvider = (props) => {
   const [logo, setLogo] = useState(switchLogo.light);
 
   useEffect(() => {
-    const isDark = document.documentElement.classList.contains("dark");
+    const updateLogo = () => {
+      const isDark =
+        isBrowser && document.documentElement.classList.contains("dark");
+      const result = isDark ? switchLogo.light : switchLogo.dark;
+      setLogo(result);
+    };
 
-    setLogo(isDark ? switchLogo.light : switchLogo.dark);
+    updateLogo();
+
+    const observer = new MutationObserver((mutations) => {
+      for (const mutation of mutations) {
+        if (
+          mutation.type === "attributes" &&
+          mutation.attributeName === "class"
+        ) {
+          updateLogo();
+        }
+      }
+    });
+
+    observer.observe(document.documentElement, { attributes: true });
+
+    return () => {
+      observer.disconnect();
+    };
   }, []);
 
   return (
-    <ThemeContexte.Provider value={isBrowser && logo}>
+    <ThemeContexte.Provider value={logo}>
       {props.children}
     </ThemeContexte.Provider>
   );
