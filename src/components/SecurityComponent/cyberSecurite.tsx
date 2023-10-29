@@ -56,8 +56,8 @@ function CyberSecurite() {
   }
 
   return (
-    <article className="dark:bg-bgDarModeLow px-2 pb-12 pt-10 dark:text-white">
-      <h2 className="leading-10b p-10 text-center text-2xl font-bold">
+    <article className="px-2 pb-12 pt-10 dark:bg-bgDarModeLow dark:text-white">
+      <h2 className="p-10 text-center text-2xl font-bold leading-10">
         {TITRE}
       </h2>
       <Swiper
@@ -83,7 +83,7 @@ function CyberSecurite() {
           <SwiperSlide key={cyberSecurite.id} className=" p-2">
             <ul className="mx-8 rounded-xl shadow-custom ">
               {cyberSecurite.id && (
-                <li className="dark:bg-bgDarkModeGrey mb-10 lg:flex lg:h-[500px]">
+                <li className="mb-10 dark:bg-bgDarkModeGrey lg:flex lg:h-[500px]">
                   <div className="relative h-[308px] lg:h-[500px] lg:w-1/2">
                     <Image
                       src={cyberSecurite.img}

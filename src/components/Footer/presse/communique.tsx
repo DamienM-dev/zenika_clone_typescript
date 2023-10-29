@@ -12,8 +12,8 @@ import { Keyboard, Mousewheel, Navigation, Pagination } from "swiper/modules";
 import Image from "next/image";
 import DOMPurify from "dompurify";
 
-function Responsable() {
-  type Responsable = {
+function Communique() {
+  type Communique = {
     id: number;
     image: string;
     alt: string;
@@ -21,25 +21,25 @@ function Responsable() {
     paragraphe: string;
     lien: string;
   };
-  const TITRE = "Encourager le Numérique responsable";
+  const TITRE = "Communiqués et revue de Presse";
   const ARROWRIGHT = "/icone/arrowRight.png";
   const ALRARROWRIGHT = "Fléche de droite";
 
-  const [responsables, setResposable] = useState<Responsable[]>([]);
+  const [communiques, setCommunique] = useState<Communique[]>([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("/api/responsables")
+    fetch("/api/communiques")
       .then((response) => {
         if (!response.ok) {
           throw new Error(
-            "Une erreur est survenue pendant le chargement de responsable",
+            "Une erreur est survenue pendant le chargement de communique",
           );
         }
         return response.json();
       })
       .then((data) => {
-        setResposable(data as Responsable[]);
+        setCommunique(data as Communique[]);
       })
       .catch((err) => {
         console.log((err as Error).message);
@@ -51,8 +51,8 @@ function Responsable() {
     return <div>Erreur : {error}</div>;
   }
   return (
-    <article className="backgourndGradientGreen px-2 pb-12 pt-10">
-      <h2 className="p-10 text-center text-2xl font-bold leading-10">
+    <article className="backgourndGradient px-2 pb-12 pt-10">
+      <h2 className="p-10 text-center text-2xl font-bold leading-10 text-pinkTitre">
         {TITRE}
       </h2>
       <Swiper
@@ -74,15 +74,15 @@ function Responsable() {
         }}
         className="mySwiper"
       >
-        {responsables.map((responsable) => (
-          <SwiperSlide key={responsable.id} className=" p-2">
+        {communiques.map((communique) => (
+          <SwiperSlide key={communique.id} className=" p-2">
             <ul className="mx-8 rounded-xl shadow-custom ">
-              {responsable.id && (
+              {communique.id && (
                 <li className=" mb-10 overflow-hidden rounded-lg bg-white dark:bg-bgDarkModeGrey dark:text-white lg:flex lg:h-[500px]">
                   <div className="  relative h-[308px] lg:h-[500px] lg:w-1/2">
                     <Image
-                      src={responsable.image}
-                      alt={responsable.alt}
+                      src={communique.image}
+                      alt={communique.alt}
                       layout="fill"
                       objectFit="cover"
                       className="!h-full  w-full lg:max-h-full lg:rounded-tr-none"
@@ -91,19 +91,19 @@ function Responsable() {
 
                   <div className="relative m-4 lg:h-[490px] lg:w-1/2">
                     <div className="mb-4 px-4 pb-6 pt-4 text-base leading-5 lg:p-4">
-                      <h3 className="p-4 ">{responsable.titre}</h3>
+                      <h3 className="p-4 ">{communique.titre}</h3>
                       <p
                         dangerouslySetInnerHTML={{
-                          __html: DOMPurify.sanitize(responsable.paragraphe),
+                          __html: DOMPurify.sanitize(communique.paragraphe),
                         }}
                         className="mb-4 font-nunito-light"
                       ></p>
                     </div>
-                    {responsable.lien ? (
+                    {communique.lien ? (
                       <div className="absolute bottom-0 right-0 p-2">
                         <a
                           className="flex justify-end"
-                          href={responsable.lien}
+                          href={communique.lien}
                           target="_blank"
                           rel="noopener noreferrer"
                         >
@@ -133,4 +133,4 @@ function Responsable() {
   );
 }
 
-export default Responsable;
+export default Communique;

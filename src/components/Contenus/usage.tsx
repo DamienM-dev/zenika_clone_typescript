@@ -47,8 +47,8 @@ function Usage() {
     return <div>Erreur : {error}</div>;
   }
   return (
-    <article className="centerSliderUsage dark:bg-bgDarModeLow px-10">
-      <h2 className="leading-10b p-10 text-center text-2xl font-bold dark:text-white">
+    <article className="centerSliderUsage px-10 dark:bg-bgDarModeLow">
+      <h2 className="p-10 text-center text-2xl font-bold leading-10 dark:text-white">
         {TITRE}
       </h2>
       <Swiper
