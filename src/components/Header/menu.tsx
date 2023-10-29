@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DarkMode from "./darkMode";
+import Image from "next/image";
 
 type LinkType = {
   name: string;
@@ -12,6 +13,9 @@ type LinkType = {
 //   name: string;
 //   link: string;
 // };
+
+const CROSS = "/icone/cross.png";
+const CROSS_ALT = "Fermeture";
 
 // ---------- LIEN VERS PAGE ----------
 
@@ -45,11 +49,35 @@ const CONTACT: LinkType[] = [{ name: "contact", link: "/contact" }];
 function Menu() {
   const [open, setOpen] = useState(false);
 
+  const handleOutsideClick = () => {
+    if (open) setOpen(false);
+  };
+
+  // ---------- POUR OUVRIR LE MENU AVEC BURGER ----------
+
+  const handleBurger = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    e.stopPropagation();
+    setOpen(true);
+  };
+
+  const handleMenuClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    e.stopPropagation();
+    setOpen(false);
+  };
+
+  useEffect(() => {
+    document.body.addEventListener("click", handleOutsideClick);
+
+    return () => {
+      document.body.removeEventListener("click", handleOutsideClick);
+    };
+  }, [open]);
+
   return (
     <nav className="self-center pl-14">
       <div
         className="absolute right-8 top-3 h-7 w-7 cursor-pointer xl:hidden"
-        onClick={() => setOpen(!open)}
+        onClick={handleBurger}
       >
         <svg
           viewBox="0 0 100 80"
@@ -64,10 +92,20 @@ function Menu() {
         {open ? (
           // ---------- MENU PETIT ECRAN ----------
           <div
-            className={`duration-900 fixed right-0 top-0 z-50 h-screen w-80 transform bg-white px-6 pt-10 text-center transition-transform ease-out dark:bg-bgDarkMode dark:text-white ${
+            className={`duration-900 fixed right-0 top-0 z-50 h-full w-80 transform bg-white px-6 pt-10 text-center transition-transform ease-out dark:bg-bgDarkMode dark:text-white ${
               open ? "translate-x-0" : "translate-x-full"
             }`}
           >
+            <div className="flex justify-end">
+              <Image
+                src={CROSS}
+                alt={CROSS_ALT}
+                height={24}
+                width={24}
+                className=""
+                onClick={handleMenuClick}
+              />
+            </div>
             <div className="p-4">
               <ul className=" ">
                 {LINKS.map((link) => (
@@ -95,8 +133,8 @@ function Menu() {
                 ))}
               </ul>
             </div>
-            <div className="mb-6 block h-72"></div>
-            <div>
+            <div className="mb-6 block h-52"></div>
+            <div className="mb-6">
               {CONTACT.map((contact) => (
                 <a
                   key={contact.name}
@@ -107,7 +145,9 @@ function Menu() {
                 </a>
               ))}
             </div>
-            <DarkMode />
+            <div className="flex justify-center">
+              <DarkMode />
+            </div>
           </div>
         ) : null}
         {/* ---------- MENU GRAND ECRAN ---------- */}
