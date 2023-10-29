@@ -74,7 +74,7 @@ function Menu() {
   }, [open]);
 
   return (
-    <nav className="self-center pl-14">
+    <nav className="w-full self-center pl-14">
       <div
         className="absolute right-8 top-3 h-7 w-7 cursor-pointer xl:hidden"
         onClick={handleBurger}
@@ -133,7 +133,7 @@ function Menu() {
                 ))}
               </ul>
             </div>
-            <div className="mb-6 block h-52"></div>
+            <div className="mb-6 block h-11"></div>
             <div className="mb-6">
               {CONTACT.map((contact) => (
                 <a
@@ -152,7 +152,7 @@ function Menu() {
         ) : null}
         {/* ---------- MENU GRAND ECRAN ---------- */}
       </div>
-      <div className="hidden xl:flex">
+      <div className="hidden justify-between xl:flex">
         <ul className="xl:flex xl:self-center">
           {LINKS.map((link) => (
             <li key={link.name} className="font-nunito-light xl:mr-8">
@@ -162,28 +162,33 @@ function Menu() {
             </li>
           ))}
         </ul>
-        <ul className=" xl:flex xl:self-center">
-          {LINKSSECONDARY.map((linkSecondary) => (
-            <li key={linkSecondary.name} className="font-nunito-light xl:mr-8">
-              <Link className="uppercase" href={linkSecondary.link}>
-                {linkSecondary.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <div>
-          {CONTACT.map((contact) => (
-            <a
-              key={contact.name}
-              href={contact.link}
-              target="_blank"
-              className="my-2.5 rounded-full border  border-black bg-greyColor p-3.5 text-xl uppercase dark:border-white dark:bg-bgDarModeLow "
-            >
-              {contact.name}
-            </a>
-          ))}
+        <div className="mr-14 flex">
+          <ul className=" xl:flex xl:self-center">
+            {LINKSSECONDARY.map((linkSecondary) => (
+              <li
+                key={linkSecondary.name}
+                className="font-nunito-light xl:mr-8"
+              >
+                <Link className="uppercase" href={linkSecondary.link}>
+                  {linkSecondary.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div>
+            {CONTACT.map((contact) => (
+              <a
+                key={contact.name}
+                href={contact.link}
+                target="_blank"
+                className="my-2.5 rounded-full border  border-black bg-greyColor p-3.5 text-xl uppercase dark:border-white dark:bg-bgDarModeLow "
+              >
+                {contact.name}
+              </a>
+            ))}
+          </div>
+          <DarkMode />
         </div>
-        <DarkMode />
       </div>
     </nav>
   );
