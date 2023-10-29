@@ -40,7 +40,7 @@ function Social() {
         {sociaux.slice(0, 3).map((social) => (
           <ul key={social.id} className="pt-2">
             <li className="flex justify-center p-2 hover:text-pinkZenika">
-              <a href={social.lien} className="flex">
+              <a href={social.lien} className="flex" target="_blank">
                 <Image
                   src={social.logo}
                   alt={social.alt}
@@ -58,7 +58,7 @@ function Social() {
         {sociaux.slice(3, 7).map((social) => (
           <ul key={social.id} className="pt-2">
             <li className="flex justify-center p-2 hover:text-pinkZenika">
-              <a href={social.lien} className="flex">
+              <a href={social.lien} className="flex" target="_blank">
                 <Image
                   src={social.logo}
                   alt={social.alt}

@@ -78,7 +78,7 @@ function Responsable() {
           <SwiperSlide key={responsable.id} className=" p-2">
             <ul className="mx-8 rounded-xl shadow-custom ">
               {responsable.id && (
-                <li className=" mb-10 overflow-hidden rounded-lg bg-white dark:bg-bgDarkModeGrey lg:flex lg:h-[500px]">
+                <li className=" mb-10 overflow-hidden rounded-lg bg-white dark:bg-bgDarkModeGrey dark:text-white lg:flex lg:h-[500px]">
                   <div className="  relative h-[308px] lg:h-[500px] lg:w-1/2">
                     <Image
                       src={responsable.image}

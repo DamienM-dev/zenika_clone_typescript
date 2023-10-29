@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 interface Mention {
@@ -36,9 +37,9 @@ function Mention() {
       {mentions.map((mention) => (
         <ul key={mention.id}>
           <li className="mb-4 font-nunito-light hover:text-pinkZenika">
-            <a href={mention.lien}>
+            <Link href={mention.lien}>
               <h3>{mention.titre}</h3>
-            </a>
+            </Link>
           </li>
         </ul>
       ))}

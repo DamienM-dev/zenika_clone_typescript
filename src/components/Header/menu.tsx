@@ -24,8 +24,8 @@ const LINKS: LinkType[] = [
 ];
 
 const LINKSSECONDARY: LinkType[] = [
-  { name: "carrière", link: "/carriere" },
-  { name: "formation", link: "/formation" },
+  { name: "carrière", link: "https://jobs.zenika.com/fr-fr/" },
+  { name: "formation", link: "https://training.zenika.com/fr-fr" },
 ];
 
 // ---------- CONTACT ----------
@@ -136,6 +136,7 @@ function Menu() {
             <a
               key={contact.name}
               href={contact.link}
+              target="_blank"
               className="my-2.5 rounded-full border  border-black bg-greyColor p-3.5 text-xl uppercase dark:border-white dark:bg-bgDarModeLow "
             >
               {contact.name}
