@@ -47,13 +47,13 @@ function Usage() {
     return <div>Erreur : {error}</div>;
   }
   return (
-    <article className="centerSliderUsage px-10 dark:bg-bgDarModeLow">
-      <h2 className="p-10 text-center text-2xl font-bold leading-10 dark:text-white">
+    <article className="centerSliderParole px-2 pb-12 pt-10">
+      <h2 className="p-10 text-center text-2xl font-bold leading-10">
         {TITRE}
       </h2>
       <Swiper
         cssMode={true}
-        navigation={{ hiddenClass: "swiper-button-hidden" }}
+        navigation={true}
         pagination={true}
         mousewheel={true}
         keyboard={true}
@@ -72,68 +72,63 @@ function Usage() {
       >
         {usages.map((usage) => (
           <SwiperSlide key={usage.id} className=" p-2">
-            <div className="flex justify-center">
-              <ul className="relative mx-8 mb-10 max-w-[660px] rounded-xl shadow-custom">
-                {usage.id && (
-                  <li className="dark:bg-bgDarkModeGrey dark:text-white lg:flex lg:h-[500px]">
-                    <div className="relative lg:w-1/2">
-                      <Image
-                        src={usage.image}
-                        alt={usage.alt}
-                        height={246}
-                        width={380}
-                        layout="responsive"
-                        objectFit="cover"
-                        className="max-h-[308px] w-full rounded-t-xl lg:!h-full lg:max-h-full lg:rounded-tr-none"
-                      />
-                      {/* ---------- Je change de couleurs car l'arrière plan de la card est blanche donc le titre ne se voit pas ---------- */}
-                      <h3
-                        className={`absolute top-0 p-4 ${
-                          usage.titre ===
-                          "Créer une application au service de la marque"
-                            ? "text-black"
-                            : "text-white"
-                        }`}
-                      >
-                        {usage.titre}
-                      </h3>
-                    </div>
+            <ul className="mx-8 rounded-xl shadow-custom ">
+              {usage.id && (
+                <li className="mb-10 dark:bg-bgDarkModeGrey lg:flex lg:h-[500px]">
+                  <div className="relative h-[308px] lg:h-[500px] lg:w-1/2">
+                    <Image
+                      src={usage.image}
+                      alt={usage.alt}
+                      layout="fill"
+                      objectFit="cover"
+                      className="!h-full w-full rounded-t-xl lg:max-h-full lg:rounded-tr-none"
+                    />
+                    {/* ---------- Je change de couleurs car l'arrière plan de la card est blanche donc le titre ne se voit pas ---------- */}
+                    <h3
+                      className={`absolute top-0 p-4 ${
+                        usage.titre ===
+                        "Créer une application au service de la marque"
+                          ? "text-black"
+                          : "text-white"
+                      }`}
+                    >
+                      {usage.titre}
+                    </h3>
+                  </div>
 
-                    <div className="m-4 h-96 lg:w-1/2">
-                      <div className="mb-4 text-base leading-5 lg:p-4">
-                        <p className="mb-4 font-nunito-light">
-                          {usage.paragraphe}
-                        </p>
+                  <div className="relative m-4 lg:h-[490px] lg:w-1/2">
+                    <div className="mb-4 px-4 pb-6 pt-4 text-base leading-5 lg:p-4">
+                      <p className="mb-4 font-nunito-light">
+                        {usage.paragraphe}
+                      </p>
+                    </div>
+                    {usage.lien ? (
+                      <div className="absolute bottom-0 right-0 p-2">
+                        <a
+                          className="flex justify-end"
+                          href={usage.lien}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <span>
+                            <Image
+                              src={ARROWRIGHT}
+                              alt={ALRARROWRIGHT}
+                              width={24}
+                              height={24}
+                              className="mr-2"
+                            />
+                          </span>
+                          <span className="uppercase text-pinkZenika">
+                            Découvrir
+                          </span>
+                        </a>
                       </div>
-
-                      {usage.lien ? (
-                        <div className="absolute bottom-0 right-0 p-2">
-                          <a
-                            className="flex justify-end"
-                            href={usage.lien}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <span>
-                              <Image
-                                src={ARROWRIGHT}
-                                alt={ALRARROWRIGHT}
-                                width={24}
-                                height={24}
-                                className="mr-2"
-                              />
-                            </span>
-                            <span className="uppercase text-pinkZenika">
-                              Découvrir
-                            </span>
-                          </a>
-                        </div>
-                      ) : null}
-                    </div>
-                  </li>
-                )}
-              </ul>
-            </div>
+                    ) : null}
+                  </div>
+                </li>
+              )}
+            </ul>
           </SwiperSlide>
         ))}
       </Swiper>

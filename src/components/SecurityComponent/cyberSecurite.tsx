@@ -101,7 +101,7 @@ function CyberSecurite() {
                     <div className="mb-4 px-4 pb-6 pt-4 text-base leading-5 lg:p-4">
                       <h3 className="strong ">{PROJET}</h3>
                       <p className="mb-4 font-nunito-light">
-                        {cyberSecurite.paragraphe}{" "}
+                        {cyberSecurite.paragraphe}
                       </p>
 
                       <h3>{EXPERTISE}</h3>
