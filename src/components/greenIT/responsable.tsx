@@ -91,7 +91,7 @@ function Responsable() {
 
                   <div className="relative m-4 lg:h-[490px] lg:w-1/2">
                     <div className="mb-4 px-4 pb-6 pt-4 text-base leading-5 lg:p-4">
-                      <h3 className="p-4 ">{responsable.titre}</h3>
+                      <h3 className="pb-4 ">{responsable.titre}</h3>
                       <p
                         dangerouslySetInnerHTML={{
                           __html: DOMPurify.sanitize(responsable.paragraphe),

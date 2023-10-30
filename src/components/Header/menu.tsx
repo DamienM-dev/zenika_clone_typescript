@@ -2,7 +2,6 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import DarkMode from "./darkMode";
 import Image from "next/image";
-import { useLocation } from "react-router-dom";
 import { useRouter } from "next/router";
 
 type LinkType = {
@@ -47,6 +46,8 @@ const CONTACT: LinkType[] = [{ name: "contact", link: "/contact" }];
 //   { images: "", name: "EN (GLOBAL)", link: "/" },
 //   { images: "", name: "EN (SINGAPOR)", link: "/" },
 // ];
+
+// ---------- GESTION MENU BURGER ----------
 
 function Menu() {
   const [open, setOpen] = useState(false);
@@ -102,6 +103,7 @@ function Menu() {
         </svg>
         {open ? (
           // ---------- MENU PETIT ECRAN ----------
+
           <div
             className={`duration-900 fixed right-0 top-0 z-50 h-full w-80 transform bg-white px-6 pt-10 text-center transition-transform ease-out dark:bg-bgDarkMode dark:text-white ${
               open ? "translate-x-0" : "translate-x-full"
@@ -124,7 +126,14 @@ function Menu() {
                     key={link.name}
                     className="mt-6 font-nunito-light text-xl hover:text-pinkZenika"
                   >
-                    <Link className="uppercase " href={link.link}>
+                    <Link
+                      className={`uppercase ${
+                        link.link === locationMenu
+                          ? " border-b-2 border-pinkZenika"
+                          : null
+                      }`}
+                      href={link.link}
+                    >
                       {link.name}
                     </Link>
                   </li>
@@ -161,6 +170,7 @@ function Menu() {
             </div>
           </div>
         ) : null}
+
         {/* ---------- MENU GRAND ECRAN ---------- */}
       </div>
       <div className="hidden justify-between xl:flex">
