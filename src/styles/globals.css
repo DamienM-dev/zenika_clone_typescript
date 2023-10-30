@@ -57,19 +57,6 @@
   display: none !important;
 }
 
-/* ---------- ANIMATION FORM ----------*/
-
-.input-wrapper label {
-  transition: transform 0.6s;
-}
-
-.input-wrapper:focus-within label {
-  transform: translateY(-30px);
-  font-size: 10px;
-  color: #df2147;
-  transition: transform 0.6s;
-}
-
 /* ---------- MEDIA QUERIES POUR CENTRER LES SLIDERS ---------- */
 
 @media screen and (min-width: 960px) {

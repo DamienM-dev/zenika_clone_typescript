@@ -180,7 +180,6 @@ function Menu() {
               <a
                 key={contact.name}
                 href={contact.link}
-                target="_blank"
                 className="my-2.5 rounded-full border  border-black bg-greyColor p-3.5 text-xl uppercase dark:border-white dark:bg-bgDarModeLow "
               >
                 {contact.name}
