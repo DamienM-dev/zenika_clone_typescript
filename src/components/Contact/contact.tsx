@@ -1,27 +1,55 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const TITRE = "Nous contacter";
 
-// function formContactSubmit() {
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-
-//     const form = e.target;
-
-//     const formData = new FormData(form);
-
-//     const prenom = formData.get("prenom");
-//     const nom = formData.get("nom");
-//     const email = formData.get("email");
-//     const area = formData.get("area");
-
-//     form.reset();
-//   };
-// }
-
-// ---------- FONCTION POUR LEVER LE LABEL ----------
-
 function Contact() {
+  // ---------- FORMULAIRE ----------
+
+  type Contact = {
+    message?: string;
+    error?: string;
+  };
+
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const handleSubmit = async (event: React.MouseEvent) => {
+    event.preventDefault();
+
+    if (!formRef.current) return;
+
+    const formData = new FormData(formRef.current);
+
+    const data = {
+      nom: formData.get("nom"),
+      prenom: formData.get("prenom"),
+      email: formData.get("email"),
+      area: formData.get("area"),
+    };
+
+    try {
+      const response = await fetch("/api/create/contact", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Réponse du serveur non attendue");
+      }
+
+      const result = (await response.json()) as Contact;
+      console.log(result);
+      alert("Informations envoyées avec succès!");
+    } catch (error) {
+      console.error(error);
+      alert("Une erreur est survenue lors de l'envoi du formulaire.");
+    }
+  };
+
+  // ---------- FONCTION POUR LEVER LE LABEL ----------
+
   const [focusedInputName, setFocusedInputName] = useState<string | null>(null);
   const [inputValues, setInputValues] = useState<Record<string, string>>({});
 
@@ -70,7 +98,7 @@ function Contact() {
     <article className="dark:text-gr flex w-full items-center justify-center dark:bg-bgDarkMode dark:text-greyColor">
       <div className="w-full max-w-6xl px-4 py-10">
         <h1 className="mb-4 text-center text-4xl">{TITRE}</h1>
-        <form action="" className="">
+        <form ref={formRef}>
           <div className="flex flex-col space-y-4">
             <div className="flex flex-col space-y-4 md:flex-row md:space-x-4 md:space-y-0">
               <div className="input-wrapper relative w-full">
@@ -162,6 +190,7 @@ function Contact() {
               <button
                 type="submit"
                 className="mx-2 mb-2 mt-6 rounded-full bg-pinkZenika p-3 uppercase text-pinkTitre"
+                onClick={handleSubmit}
               >
                 Envoyer
               </button>
