@@ -8,7 +8,7 @@ import { useContext } from "react";
 
 const ALT = "Logo de Zenika";
 const COPYRIGHT =
-  "Ceci est en but d'entraiment − Tous droits réservés à Zenika.";
+  "Ceci est en but d'entrainement − Tous droits réservés à Zenika.";
 
 const ACCUEIL = "/";
 

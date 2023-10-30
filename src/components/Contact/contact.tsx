@@ -99,7 +99,7 @@ function Contact() {
       <div className="w-full max-w-6xl px-4 py-10">
         <h1 className="mb-4 text-center text-4xl">{TITRE}</h1>
         <form ref={formRef}>
-          <div className="flex flex-col space-y-4">
+          <div className="flex flex-col space-y-4 px-3.5 py-5">
             <div className="flex flex-col space-y-4 md:flex-row md:space-x-4 md:space-y-0">
               <div className="input-wrapper relative w-full">
                 <label
@@ -165,7 +165,7 @@ function Contact() {
               />
             </div>
 
-            <div className="input-wrapper border-xl relative w-full px-3.5 py-5">
+            <div className="input-wrapper border-xl relative w-full">
               <label
                 htmlFor="area"
                 style={getLabelStyle("area")}

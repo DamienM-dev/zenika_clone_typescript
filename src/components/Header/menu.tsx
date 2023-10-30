@@ -122,9 +122,9 @@ function Menu() {
                 {LINKS.map((link) => (
                   <li
                     key={link.name}
-                    className="mr-8 mt-6 font-nunito-light text-xl hover:text-pinkZenika"
+                    className="mt-6 font-nunito-light text-xl hover:text-pinkZenika"
                   >
-                    <Link className="uppercase" href={link.link}>
+                    <Link className="uppercase " href={link.link}>
                       {link.name}
                     </Link>
                   </li>
@@ -135,7 +135,7 @@ function Menu() {
                 {LINKSSECONDARY.map((linkSecondary) => (
                   <li
                     key={linkSecondary.name}
-                    className="mr-8 mt-6 font-nunito-light text-xl hover:text-pinkZenika"
+                    className="mt-6 font-nunito-light text-xl hover:text-pinkZenika"
                   >
                     <Link className="uppercase" href={linkSecondary.link}>
                       {linkSecondary.name}
@@ -174,7 +174,10 @@ function Menu() {
                   : null
               }`}
             >
-              <Link className="uppercase" href={link.link}>
+              <Link
+                className="uppercase hover:text-pinkZenika"
+                href={link.link}
+              >
                 {link.name}
               </Link>
             </li>
@@ -187,7 +190,10 @@ function Menu() {
                 key={linkSecondary.name}
                 className=" font-nunito-light xl:mr-8"
               >
-                <Link className="uppercase" href={linkSecondary.link}>
+                <Link
+                  className="uppercase hover:text-pinkZenika"
+                  href={linkSecondary.link}
+                >
                   {linkSecondary.name}
                 </Link>
               </li>
@@ -198,7 +204,7 @@ function Menu() {
               <a
                 key={contact.name}
                 href={contact.link}
-                className="my-2.5 rounded-full border  border-black bg-greyColor p-3.5 text-xl uppercase dark:border-white dark:bg-bgDarModeLow "
+                className="my-2.5 rounded-full border  border-black bg-greyColor p-3.5 text-xl uppercase hover:bg-bgDarkMode hover:text-greyColor dark:border-white dark:bg-bgDarModeLow dark:hover:bg-greyColor dark:hover:text-bgDarModeLow"
               >
                 {contact.name}
               </a>

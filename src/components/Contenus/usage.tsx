@@ -47,8 +47,8 @@ function Usage() {
     return <div>Erreur : {error}</div>;
   }
   return (
-    <article className="centerSliderParole px-2 pb-12 pt-10">
-      <h2 className="p-10 text-center text-2xl font-bold leading-10">
+    <article className="centerSliderParole px-2 pb-12 pt-10 dark:bg-bgDarModeLow">
+      <h2 className="p-10 text-center text-2xl font-bold leading-10 dark:text-white">
         {TITRE}
       </h2>
       <Swiper
@@ -96,7 +96,7 @@ function Usage() {
                     </h3>
                   </div>
 
-                  <div className="relative m-4 lg:h-[490px] lg:w-1/2">
+                  <div className="relative m-4 rounded-t-xl dark:text-white lg:h-[490px] lg:w-1/2">
                     <div className="mb-4 px-4 pb-6 pt-4 text-base leading-5 lg:p-4">
                       <p className="mb-4 font-nunito-light">
                         {usage.paragraphe}

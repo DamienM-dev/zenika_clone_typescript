@@ -38,7 +38,7 @@ function Media() {
     return <div>Erreur : {error}</div>;
   }
   return (
-    <article className="dark:bg-bgDarkMode bg-greyColor px-10 pb-12 pt-10 dark:text-white">
+    <article className="bg-greyColor px-10 pb-12 pt-10 dark:bg-bgDarkMode dark:text-white">
       <div>
         <div>
           <h2 className="pb-10 text-center text-2xl">{TITRE}</h2>
@@ -48,7 +48,7 @@ function Media() {
         <div className=" lg:grid lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
           {medias.map((media) => (
             <div key={media.id} className="p-4 ">
-              <div className="dark:bg-bgDarkModeGrey h-[454px] rounded-lg bg-white p-8 dark:text-white">
+              <div className="rounded-lg bg-white p-8 dark:bg-bgDarkModeGrey dark:text-white lg:h-[454px]">
                 <div className="px-2 pb-2 pt-4">
                   <div className="flex justify-center">
                     <Image
@@ -56,6 +56,7 @@ function Media() {
                       alt={media.alt}
                       height={150}
                       width={150}
+                      className="lg:h-[150px] lg:w-[150px]"
                     />
                   </div>
                   <div className="p-4">
