@@ -2,6 +2,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import DarkMode from "./darkMode";
 import Image from "next/image";
+import { useLocation } from "react-router-dom";
+import { useRouter } from "next/router";
 
 type LinkType = {
   name: string;
@@ -53,8 +55,6 @@ function Menu() {
     if (open) setOpen(false);
   };
 
-  // ---------- POUR OUVRIR LE MENU AVEC BURGER ----------
-
   const handleBurger = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.stopPropagation();
     setOpen(true);
@@ -72,6 +72,17 @@ function Menu() {
       document.body.removeEventListener("click", handleOutsideClick);
     };
   }, [open]);
+
+  // ---------- SOULIGNE MENU SELECTIONNE ----------
+
+  const [locationMenu, setLocationMenu] = useState<string>();
+
+  const router = useRouter();
+
+  useEffect(() => {
+    setLocationMenu(router.pathname);
+    console.log(router.pathname);
+  }, [router.pathname]);
 
   return (
     <nav className="w-full self-center pl-14">
@@ -155,7 +166,14 @@ function Menu() {
       <div className="hidden justify-between xl:flex">
         <ul className="xl:flex xl:self-center">
           {LINKS.map((link) => (
-            <li key={link.name} className="font-nunito-light xl:mr-8">
+            <li
+              key={link.name}
+              className={`font-nunito-light xl:mr-8 ${
+                link.link === locationMenu
+                  ? " border-b-2 border-pinkZenika"
+                  : null
+              }`}
+            >
               <Link className="uppercase" href={link.link}>
                 {link.name}
               </Link>
@@ -167,7 +185,7 @@ function Menu() {
             {LINKSSECONDARY.map((linkSecondary) => (
               <li
                 key={linkSecondary.name}
-                className="font-nunito-light xl:mr-8"
+                className=" font-nunito-light xl:mr-8"
               >
                 <Link className="uppercase" href={linkSecondary.link}>
                   {linkSecondary.name}
