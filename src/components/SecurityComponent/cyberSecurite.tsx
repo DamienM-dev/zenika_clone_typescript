@@ -83,7 +83,7 @@ function CyberSecurite() {
           <SwiperSlide key={cyberSecurite.id} className=" p-2">
             <ul className="mx-8 rounded-xl shadow-custom ">
               {cyberSecurite.id && (
-                <li className="mb-10 dark:bg-bgDarkModeGrey lg:flex lg:h-[500px]">
+                <li className="mb-10 dark:bg-bgDarkModeGrey lg:flex lg:h-[500px] ">
                   <div className="relative h-[308px] lg:h-[500px] lg:w-1/2">
                     <Image
                       src={cyberSecurite.img}

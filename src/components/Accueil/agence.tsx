@@ -46,7 +46,7 @@ function Agence() {
       <div className="sm:grid sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6">
         {agences.map((agence) => (
           <div key={agence.id} className="p-5">
-            <div className=" mx-auto w-full max-w-sm rounded-t-xl">
+            <div className=" mx-auto w-full max-w-sm rounded-t-xl hover:contrast-125">
               <a href={agence.lien} target="_blank">
                 <Image
                   src={agence.img}
@@ -57,7 +57,7 @@ function Agence() {
                   objectFit="cover"
                   className="rounded-t-xl"
                 />
-                <div className="dark:bg-bgDarModeLow rounded-b-xl bg-greyColor p-4 text-center">
+                <div className="rounded-b-xl bg-greyColor p-4 text-center dark:bg-bgDarModeLow">
                   <h3 className="capitalize text-pinkZenika dark:text-white">
                     {agence.titre}
                   </h3>

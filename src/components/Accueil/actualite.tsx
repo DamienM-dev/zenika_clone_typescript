@@ -79,9 +79,9 @@ function Actualite() {
       >
         {actualites.map((actualite) => (
           <SwiperSlide key={actualite.id} className="h-card p-2">
-            <ul className="relative mx-8 h-[450px] rounded-xl shadow-custom dark:bg-bgDarkModeGrey">
+            <ul className="relative mx-8 h-[450px] rounded-xl shadow-custom hover:contrast-125 dark:bg-bgDarkModeGrey ">
               {actualite.id && (
-                <li>
+                <li className="">
                   <Image
                     src={actualite.img}
                     alt={actualite.alt}

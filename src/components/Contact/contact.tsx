@@ -41,7 +41,10 @@ function Contact() {
 
       const result = (await response.json()) as Contact;
       console.log(result);
-      alert("Informations envoyées avec succès!");
+      const element = document.querySelector("p.success.hidden");
+      if (element) {
+        element.classList.remove("hidden");
+      }
     } catch (error) {
       console.error(error);
       alert("Une erreur est survenue lors de l'envoi du formulaire.");
@@ -195,6 +198,9 @@ function Contact() {
                 Envoyer
               </button>
             </div>
+            <p className="successMessage hidden">
+              Informations envoyées avec succès!
+            </p>
           </div>
         </form>
       </div>

@@ -9,6 +9,10 @@ type LinkType = {
   link: string;
 };
 
+type Shallow = {
+  swallow: boolean;
+};
+
 // type Langages = {
 //   images: string;
 //   name: string;
@@ -51,6 +55,23 @@ const CONTACT: LinkType[] = [{ name: "contact", link: "/contact" }];
 
 function Menu() {
   const [open, setOpen] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleRouteChange = (
+      url: string,
+      { shallow }: { shallow: boolean },
+    ) => {
+      console.log(`Navigating to ${url}. Shallow: ${shallow}`);
+      setOpen(false);
+    };
+
+    router.events.on("routeChangeStart", handleRouteChange);
+
+    return () => {
+      router.events.off("routeChangeStart", handleRouteChange);
+    };
+  }, []);
 
   const handleOutsideClick = () => {
     if (open) setOpen(false);
@@ -77,8 +98,6 @@ function Menu() {
   // ---------- SOULIGNE MENU SELECTIONNE ----------
 
   const [locationMenu, setLocationMenu] = useState<string>();
-
-  const router = useRouter();
 
   useEffect(() => {
     setLocationMenu(router.pathname);
