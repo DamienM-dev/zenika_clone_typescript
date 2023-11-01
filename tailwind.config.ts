@@ -27,6 +27,14 @@ export default {
         bgDarkMode: "#121212",
         bgDarModeLow: "#1e1e1e",
         bgDarkModeGrey: "#292929",
+        bgSuccess: "#F4FBF6",
+        textSuccess: "#203C25",
+        bgDarkSuccess: "#121B17",
+        textDarkSuccess: "#B1F1CB",
+        bgError: "#FFF8F7",
+        textError: "#5C271F",
+        bgDarkError: "#1F1513",
+        textDarkError: "#FBD3CB",
       },
       boxShadow: {
         custom:

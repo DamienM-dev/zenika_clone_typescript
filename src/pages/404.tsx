@@ -5,10 +5,6 @@ const importLottie = () => {
   import("@lottiefiles/lottie-player");
 };
 
-interface LottiePlayerProps {
-  src: string;
-}
-
 const LottiePlayer: React.FC<LottiePlayerProps> = ({ src }) => {
   const ref = useRef<HTMLDivElement>(null);
 
