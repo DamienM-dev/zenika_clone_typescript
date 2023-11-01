@@ -57,6 +57,7 @@ function Menu() {
   const [open, setOpen] = useState(false);
   const router = useRouter();
 
+  // ---------- FERME LE MENU AU CHANGEMENT DE PAGE ----------
   useEffect(() => {
     const handleRouteChange = (
       url: string,
@@ -65,6 +66,8 @@ function Menu() {
       console.log(`Navigating to ${url}. Shallow: ${shallow}`);
       setOpen(false);
     };
+
+    // ---------- FERME LE MENU CLIQUE SUR LA CROIX  ----------
 
     router.events.on("routeChangeStart", handleRouteChange);
 

@@ -12,6 +12,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@lottiefiles/lottie-player": "^2.0.2",
     "@next-auth/prisma-adapter": "^1.0.7",
     "@next/env": "^13.5.5",
     "@prisma/client": "^5.1.1",

@@ -4,6 +4,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ---------- BODY ---------- */
+
+body {
+  height: 100vh;
+  margin: 0;
+}
+
 /* ---------- FONTS ---------- */
 
 @font-face {
