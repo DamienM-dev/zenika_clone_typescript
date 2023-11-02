@@ -1,3 +1,5 @@
+import { FallingLines } from "react-loader-spinner";
+
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
@@ -29,6 +31,7 @@ function Actualite() {
 
   const [actualites, setActualite] = useState<Actualite[]>([]);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     fetch("/api/actualites")
@@ -42,12 +45,18 @@ function Actualite() {
       })
       .then((data) => {
         setActualite(data as Actualite[]);
+        setLoading(false);
       })
       .catch((err) => {
         console.log((err as Error).message);
         setError(err as null);
+        setLoading(false);
       });
   }, []);
+
+  if (loading) {
+    return <FallingLines color="#DF2147" width={"100"} visible={true} />;
+  }
 
   if (error) {
     return <div>Erreur : {error}</div>;

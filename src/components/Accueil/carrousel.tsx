@@ -1,3 +1,5 @@
+import { FallingLines } from "react-loader-spinner";
+
 import Image from "next/image";
 
 interface Carrousel {
@@ -24,6 +26,7 @@ const PARAGRAPHECARROUSEL =
 function CarrouselsPage() {
   const [carrousels, setCarrousels] = useState<Carrousel[]>([]);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     fetch("/api/carrousels")
@@ -35,12 +38,18 @@ function CarrouselsPage() {
       })
       .then((data) => {
         setCarrousels(data as Carrousel[]);
+        setLoading(false);
       })
       .catch((err) => {
         console.error((err as Error).message);
         setError(err as null);
+        setLoading(false);
       });
   }, []);
+
+  if (loading) {
+    return <FallingLines color="#DF2147" width={"100"} visible={true} />;
+  }
 
   if (error) {
     return <div>Erreur : {error}</div>;
