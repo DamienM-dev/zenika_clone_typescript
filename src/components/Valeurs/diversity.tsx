@@ -77,9 +77,9 @@ function Diversity() {
       >
         {diversities.map((diversity) => (
           <SwiperSlide key={diversity.id} className="h-card p-2">
-            <ul className="relative mx-8 mb-10 h-[500px] min-w-[320px] rounded-xl shadow-custom">
+            <ul className="relative mx-8 mb-10 h-[500px] min-w-[320px] rounded-xl shadow-custom dark:bg-bgDarkModeGrey">
               {diversity.id && (
-                <li className="dark:bg-bgDarkModeGrey dark:text-white lg:flex lg:h-full">
+                <li className=" dark:text-white lg:flex lg:h-full">
                   <div className="lg:w-1/2">
                     <Image
                       src={diversity.image}
